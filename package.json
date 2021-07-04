@@ -35,7 +35,7 @@
   "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
   "license": "MIT",
   "engines": {
-    "node": "14.17.1"
+    "node": "14.17.0"
   },
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard/issues"
@@ -52,7 +52,7 @@
   "homepage": "https://github.com/creativetimofficial/material-dashboard#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.0",
     "firebase-admin": "^9.10.0",
     "sweetalert2": "^11.0.9"
   }
