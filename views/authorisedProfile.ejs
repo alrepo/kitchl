@@ -103,52 +103,19 @@
 
 <body>
   <!-- ////////////////////////////////////// START NAVIGATION BAR ////////////////////////////////////////// -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top border border-dark"
-    style="padding: 5px; background-color: #fff;">
-    <a id="logoFont" class="navbar-brand" href="../home.html"
-      style="color: rgb(255, 92, 57); font-weight: bold; font-size: 2rem; margin-left: 35px;">كتشن باي</a>
-    <div class="checkoutMobile myCart mr-5">
-      <a href="boughtMaterials.html">
-        <!-- <div class="checkoutBadge">0</div> -->
-        <!-- <i class="fas fa-2x fa-shopping-cart shopping-cart-icon"></i> -->
-      </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <!-- <ul id="noneCollapsedNavbarItems" class="navbar-nav">
-          <li class="nav-item dropdown my-auto">
-          <button class="text-dark btn btn-warning btn-lg mb-1" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; width: 150px;">
-            Dashboard
-          </button>
-          </li>
-          <li class="nav-item dropdown my-auto">
-          <button class="text-dark btn btn-warning btn-lg" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; width: 150px;">
-            Logout
-          </button>
-          </li>
-       </ul> -->
-      <li class="nav-item d-flex" style="margin-left: auto;">
-        <!-- <i class="fas fa-2x fa-shopping-cart checkoutDesktop"></i><span id="totalCost">11</span></div> -->
-        <div class="checkoutDesktop myCart mr-1 text-center">
-          <a href="boughtMaterials.html">
-            <!-- <div class="checkoutBadge">0</div> -->
-            <!-- <i class="fas fa-2x fa-shopping-cart shopping-cart-icon"></i> -->
-          </a>
-        </div>
-      </li>
-      <div class="dropdown" id="collapsedNavbarItems">
-        <button type="button" class="btn btn-warning dropdown-toggle" name="button" style="color: black;"
-          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">حسابي</button>
-        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item  text-center" href="/user.html">لوحة التحكم</a>
-          <button class="dropdown-item" id="logoutButton" type="button" name="button">خروج</button>
-        </div>
-      </div>
-    </div>
-  </nav>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top border border-dark"
+        style="padding: 5px; background-color: #fff;">
+        <a id="logoFont" class="navbar-brand" href="../home.html"
+          style="color: rgb(255, 92, 57); font-weight: bold; font-size: 2rem; margin-left: 35px;">كتشن باي</a>
+          <div class="dropdown mr-auto ml-1" id="collapsedNavbarItems">
+            <button type="button" class="btn btn-warning dropdown-toggle" name="button" style="color: black;"
+              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">حسابي</button>
+            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item  text-center" href="/user.html">لوحة التحكم</a>
+              <button class="dropdown-item" id="logoutButton" type="button" name="button">خروج</button>
+            </div>
+          </div>
+        </nav>
   <!-- ///////////////////////////////// END NAVIGATION BAR //////////////////////////////////// -->
 
   <div class="container-fluid">
@@ -334,6 +301,7 @@
 
   });
 </script>
+
 <script>
   mobiscroll.datepicker('#datetime-picker', {
     controls: ['datetime'],
