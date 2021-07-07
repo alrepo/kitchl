@@ -26,6 +26,7 @@ app.use(express.static('public'));
 
 app.get('/', function(req,res){
     res.sendFile(__dirname+'/index.html');
+    
     // res.send("Hello!");
 })
 // app.get('/authorised', function(req,res){
@@ -100,7 +101,7 @@ app.get("/supplierProfile/:id", function(req,res){
         }
         
       }
-      res.status(200).render("profile2", {name: supplierName,
+      res.status(200).render("profile", {name: supplierName,
                                          imgSource: supplierProfileImageSrc,
                                          id: supplierID2,
                                          provience: supplierProvince,
