@@ -171,10 +171,10 @@ function addNewClient(clientName, clientBookingDateAndTime, clientPhone, clientB
       tr.classList.add("newClientRow");
 
       td5.appendChild(button);
-      tr.appendChild(td1);
-      tr.appendChild(td2);
-      tr.appendChild(td3);
       tr.appendChild(td4);
+      tr.appendChild(td3);
+      tr.appendChild(td2);
+      tr.appendChild(td1);
       tr.appendChild(td5);
 
       function insertAfter(referenceNode, newNode)
