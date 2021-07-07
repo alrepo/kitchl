@@ -6,6 +6,12 @@
 </script> -->
 <html lang="ar" dir="rtl">
   <head>
+      <!-- Cloudinary Images Call -->
+      <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">
+        var widget = cloudinary.createUploadWidget({ 
+        cloudName: "ddu27xuu5", uploadPreset: "client" }, (error, result) => { });
+        widget.open();
+      </script>
       <!-- Sweetalert2 Module -->
       <script src="node_modules/dist/sweetalert2.all.js"></script>
        <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -53,35 +59,9 @@
     <!-- ////////////////////////////////////// START NAVIGATION BAR ////////////////////////////////////////// -->
             <nav class="navbar navbar-expand-lg navbar-light fixed-top border border-dark" style="padding: 5px; background-color: #fff;">
               <a id="logoFont" class="navbar-brand" href="index.html" style="color: rgb(255, 92, 57); font-weight: bold; font-size: 2rem; margin-left: 35px;">كتشن باي</a>
-                <div class="checkoutMobile myCart mr-5">
-                  <a href="boughtMaterials.html">
-                    <!-- <div class="checkoutBadge">0</div> -->
-                    <!-- <i class="fas fa-2x fa-shopping-cart shopping-cart-icon"></i> -->
-              </a>
-                </div>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-              </ul>
-                <li class="nav-item d-flex" style="margin-left: auto;">
-                  <!-- <i class="fas fa-2x fa-shopping-cart checkoutDesktop"></i><span id="totalCost">11</span></div> -->
-                  <div class="checkoutDesktop myCart mr-5 text-center">
-                    <a href="boughtMaterials.html">
-                      <!-- <div class="checkoutBadge">0</div> -->
-                      <!-- <i class="fas fa-2x fa-shopping-cart shopping-cart-icon"></i> -->
-                    </a>
-                  </div>
-                </li>
-                
-                <button type="button" class="btn btn-outline-warning signup" id="supplierLoginOrRegisterButton" name="button" style="color:black;">الموردون</button>
-
-                <!-- <button type="button" class="btn btn-warning signup" id="signupButton" name="button" style="color:black;">إنشاء حساب</button>
-                <button type="button" class="btn btn-outline-warning signin" id="signinButton" name="button" style="color:black;">تسجيل دخول</button> -->
-                </div>
+                <button type="button" class="btn btn-outline-warning signup mr-auto ml-3" id="supplierLoginOrRegisterButton" name="button" style="color:black;">الموردون</button>
             </nav>
-        <!-- ///////////////////////////////// END NAVIGATION BAR //////////////////////////////////// -->
+    <!-- ///////////////////////////////// END NAVIGATION BAR //////////////////////////////////// -->
   
 <!-- Start loading animation -->
 <div class="loadingAnimation">  
