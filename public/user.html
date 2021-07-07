@@ -162,7 +162,10 @@
     .form-input>input[type=text] {
       color: black !important;
     }
-
+    #catalogueList
+      {
+        margin-top: 15px;
+      }
     #menuProductAddButton {
       height: 50px;
       width: 50px;
@@ -225,6 +228,10 @@
       word-wrap: normal;
       text-align: center;
     }
+      #catalogueList
+      {
+        margin-top: 5px;
+      }
       #logoutDesktop
       {
         display: none;
@@ -271,6 +278,7 @@
         background-color: rgb(236, 79, 79);
         border-radius: 10px;
         align-self: center !important;
+        margin-left: 15px !important;
       }
       #myPublicProfileMobile
       {
@@ -435,35 +443,34 @@
                     </div>
 
                     <div class="row">
-
                       <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                         <div class="productInfoWrapper" dir="rtl">
                           <div class="child" style="align-self: start;" dir="rtl">
-                            <div class="" style="text-align: center; margin: 1px;">
+                            <div class="" style="text-align: center;">
                               <label for="productName" style="color: black">اسم المنتج</label><br>
                               <input type="text" class=""
-                                style="border-radius: 10px; border: solid 0.5px grey; height: 2rem; text-align: right;"
+                                style="border-radius: 10px; border: solid 0.5px grey; height: 2rem; text-align: right; width: 135px"
                                 id="productName" name="productName" autocomplete="off">
                             </div>
                           </div>
                           <div class="child" dir="rtl">
-                            <div class="" style="text-align: center; margin: 1px">
+                            <div class="" style="text-align: center;">
                               <label class="" for="productDescription" style="color: black">الوصف</label><br>
-                              <textarea id="productDescription" style="text-align: right;" class="productText"
+                              <textarea id="productDescription" style="text-align: right; width: 135px" class="productText"
                                 name="productDescription" cols="20" rows="3"></textarea>
                             </div>
                           </div>
                           <div class="child" dir="rtl">
-                            <div class="" style="text-align: center; margin: 1px; display: inline-block;">
+                            <div class="" style="text-align: center; display: inline-block;">
                               <label for="productPrice" style="color: black">السعر</label><br>
                               <input class="" type="text"
-                                style="border-radius: 10px; border: solid 0.5px grey; height: 2rem; text-align: right;"
+                                style="border-radius: 10px; border: solid 0.5px grey; height: 2rem; text-align: right; width: 135px"
                                 id="productPrice" name="productPrice" autocomplete="off">
                             </div>
                           </div>
                           <div class="child" dir="rtl">
                             <label for="productPrice" style="color: black">الكمية</label><br>
-                            <div class="" style="margin-right: auto; margin-left: auto; max-width: 75%">
+                            <div class="" style="margin-right: auto; margin-left: auto; width: 135px">
                               <select id="productQuantity"
                                 style="border: 0.5px solid grey; height: 2rem; text-align: left;"
                                 class="form-select form-select mw-25" aria-label=".form-select example">
@@ -474,9 +481,7 @@
                                 <option value="4">العلبة (حسب وصف المنتج)</option>
                               </select>
                             </div>
-
                           </div>
-
                         </div>
 
                       </div>
@@ -488,7 +493,7 @@
                     </div>
 
 
-                    <div class="row mt-2">
+                    <div id="catalogueList" class="row">
                       <div style="width: 100%" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                         <table id="myTable" class="" style="min-width:100%;">
                           <tr id="appendProductsAfterThisRow">
