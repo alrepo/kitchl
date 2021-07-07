@@ -392,7 +392,7 @@ body{
   #supplierLocationContainer
   {
     display: flex;
-    position: relative;
+    position: absolute;
     height: 50px;
     bottom: 0;
     /* background-color: yellow; */
@@ -412,7 +412,6 @@ body{
   {
     position: relative;
     display: flex;
-    align-items: center;
     height: 50px;
     /* background-color: green; */
     font-size: 25px;
