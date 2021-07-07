@@ -137,7 +137,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   insertAfter(appendingElement,div1)
 
   document.querySelector(".book").addEventListener("click", function(){
-    let supplier_id = this.id
+    let supplier_id = this.id;
     let supplier_name = document.getElementById(supplierID+"name").innerText
     // let supplier_image_src = document.getElementById(supplierID+"image").src
     let stringifiedSupplierServices = JSON.stringify(services);
@@ -152,7 +152,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
        isEmpty = "true";
     }
 
-    localStorage.setItem("supplierID", supplier_id )
+    // localStorage.setItem("supplierID", supplier_id )
     localStorage.setItem("supplierName", supplier_name)
     // localStorage.setItem("supplierImageSrc", supplier_image_src)
     localStorage.setItem("supplierServices", stringifiedSupplierServices)
