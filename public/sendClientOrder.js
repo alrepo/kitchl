@@ -173,7 +173,7 @@ for(i=1;i<=inputQuantitiesCollection.length;i++)
           timer: 1800
         })
 
-        setTimeout(function(){window.location.replace("../home.html")}, 1800);
+        setTimeout(function(){window.location.replace("../index.html")}, 1800);
         
         // var setWithMerge = cityRef.set({
         //     capital: true
