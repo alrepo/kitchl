@@ -161,7 +161,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
        isEmpty = "true";
     }
 
-    localStorage.setItem("supplierID", supplier_id )
+    // localStorage.setItem("supplierID", supplier_id )
     localStorage.setItem("supplierName", supplier_name)
     // localStorage.setItem("supplierImageSrc", supplier_image_src)
     localStorage.setItem("supplierProducts", stringifiedSupplierProducts)
