@@ -121,7 +121,12 @@ body{
 /* Desktop Styles */
 @media (min-width: 579px)
 {
-  #supplierOverallInfoCard, #supplierProductsCard
+  #supplierOverallInfoCard
+  {
+    min-height: 150px;
+    padding: 10px;
+  }
+  #supplierProductsCard
   {
     min-height: 150px;
     padding: 10px;
@@ -189,7 +194,6 @@ body{
   }
   #supplierNameContainer
   {
-    position: absolute;
     display: flex;
     align-items: center;
     height: 50px;
