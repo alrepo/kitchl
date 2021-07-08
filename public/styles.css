@@ -112,6 +112,9 @@ body
   margin-left: 5px;
   color: white;
 }
+.book{
+  height: 270px;
+}
 .card-img-top
 {
   max-width : 130px;
@@ -184,6 +187,36 @@ body
     padding: 50px;
   }
 }
+
+/*//////////////// START CATEGORIES CAROUSEL  STYLES /////////////////*/
+.wrapper{
+  width:100%;
+  padding-top: 20px;
+  text-align:center;
+  height: 100px;
+}
+h2{
+  font-family:sans-serif;
+  color:#000;
+}
+.carousel{
+  width:50%;
+  margin:0px auto;
+}
+.slick-slide{
+  margin:10px;
+}
+.slick-slide img{
+  width:100%;
+  border: 2px solid #fff;
+}
+.wrapper .slick-dots li button:before {
+  font-size:20px;
+  color:red;
+}
+ 
+/*//////////////// END  OF CATEGORIES CAROUSEL STYLES ////////////////*/
+
 /* /////////////// START MOBILE PHONE STYLES ////////////// */
 @media (max-width: 519.9px)
 {
@@ -196,10 +229,7 @@ body
 
 @media (max-width: 991.9px)
 {
-  #collapsedNavbarItems
-  {
-    /* display: none; */
-  }
+
 }
 @media (min-width: 992px)
 {
