@@ -42,6 +42,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   let img = document.createElement("img");
   let div3 = document.createElement("div");
   let div4 = document.createElement("div");
+  let div5 = document.createElement("div");
   let h5 = document.createElement("h5");
   let image = document.createElement("img");
   let span1 = document.createElement("span");
@@ -92,8 +93,12 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   img.className =  "card-img-top"
   img.id = supplierID+"image"
   img.src = supplierProfileImage;
-  div3.className = "card-body"
+  div3.className = "card-body d-flex justify-content-center"
+  div3.style.position = "relative";
   div4.className = "text-center"
+  div5.className = "locationContainer"
+  div5.style.position= "absolute";
+  div5.style.bottom = "0";
   h5.className = "card-title"
   h5.style.textAlign = "center"
   h5.innerText = name
@@ -118,9 +123,10 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   div2.appendChild(img)
   div2.appendChild(div3)
   div3.appendChild(h5)
-  div3.appendChild(image)
-  div3.appendChild(span1)
-  div3.appendChild(span2)
+  div5.appendChild(image)
+  div5.appendChild(span1)
+  div5.appendChild(span2)
+  div3.appendChild(div5)
   div2.appendChild(div4)
   let lengthofDictionary = 0;
   if ( services != null)
