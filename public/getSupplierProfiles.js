@@ -102,6 +102,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   h5.className = "card-title"
   h5.style.textAlign = "center"
   h5.innerText = name
+  h5.style.overflow = "auto";
   h5.id = supplierID+"name"
   image.src = "images/locationIcon-small.png";    
   span1.className = "text-right "+supplierID+"province"
