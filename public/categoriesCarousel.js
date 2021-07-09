@@ -1,7 +1,7 @@
 $('.carousel').slick({
-	dots: true,
-	infinite: true,
-	speed: 600,
+	dots: false,
+	infinite: false,
+	speed: 1000,
 	slidesToShow: 6,
 	slidesToScroll: 6,
 	responsive: [{
@@ -10,7 +10,7 @@ $('.carousel').slick({
 				slidesToShow: 6,
 				slidesToScroll: 6,
 				infinite: true,
-				dots: true
+				dots: false
 			}
 		},
 		{
