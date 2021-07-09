@@ -112,6 +112,11 @@ body
   margin-left: 5px;
   color: white;
 }
+#supplierProfileCardsContainer
+{
+  display: block;
+  background-color: #fff;
+}
 .book{
   height: 270px;
 }
@@ -189,19 +194,29 @@ body
 }
 
 /*//////////////// START CATEGORIES CAROUSEL  STYLES /////////////////*/
-.wrapper{
+.carouselWrapper{
   width:100%;
   padding-top: 20px;
   text-align:center;
-  height: 100px;
+  height: 100%;
+
 }
-h2{
+.carouselWrapper > h2{
   font-family:sans-serif;
   color:#000;
+  background-color: #e0dbd3;
+  display: block !important;
+}
+.carouselButton
+{
+  cursor: pointer;
+  display: flex !important;
+  align-self: center !important;
 }
 .carousel{
   width:50%;
   margin:0px auto;
+  height: 100%;
 }
 .slick-slide{
   margin:10px;
@@ -210,9 +225,13 @@ h2{
   width:100%;
   border: 2px solid #fff;
 }
-.wrapper .slick-dots li button:before {
+.slick-next:before, .slick-prev:before, .slick-dots li.slick-active button:before 
+{
+  color: rgb(48, 15, 197) !important;
+}
+.carouselWrapper .slick-dots li button:before {
   font-size:20px;
-  color:red;
+  color:rgb(20, 3, 173);
 }
  
 /*//////////////// END  OF CATEGORIES CAROUSEL STYLES ////////////////*/
