@@ -228,7 +228,8 @@ body
 }
 .carousel{
   width:90%;
-  margin:0px auto;
+  margin-left:5px;
+  margin-right: 5px;
   height: 70%;
 }
 .slick-slide{
