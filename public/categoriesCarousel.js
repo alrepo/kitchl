@@ -1,6 +1,6 @@
 $('.carousel').slick({
-	dots: false,
-	infinite: false,
+	dots: true,
+	infinite: true,
 	speed: 1000,
 	slidesToShow: 6,
 	slidesToScroll: 6,
@@ -10,7 +10,7 @@ $('.carousel').slick({
 				slidesToShow: 6,
 				slidesToScroll: 6,
 				infinite: true,
-				dots: false
+				dots: true
 			}
 		},
 		{
