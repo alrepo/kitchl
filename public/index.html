@@ -46,6 +46,8 @@
 
   <!-- CSS Style File -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="categoryCard.css">
+
   <!-- Carousel Slick Styles & Theme CDN Links-->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
@@ -254,25 +256,101 @@
           </div>
         </div>
       </div>
-    </div>
+     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+   </div>
   </div>
+</div>
 
   <!-- /////////////////////////////// START  CONTENT /////////////////////////////-->
 
   <!-- Start Catrgories Carousel -->
-  <div id="carouselContainer"> 
-    <div class="carouselWrapper" dir="ltr">
-      <div class="carousel">
-        <div class="carouselButton"><img src="images/bottles.png"></div>
-        <div class="carouselButton"><img src="images/meat.png"></div>
-        <div class="carouselButton"><img src="https://picsum.photos/300/200?random=3"></div>
-        <div class="carouselButton"><img src="https://picsum.photos/300/200?random=4"></div>
-        <div class="carouselButton"><img src="images/vege.png"></div>
-        <div class="carouselButton"><img src="images/paperCups.png"></div>
-      </div>
-    </div>
-  </div>
+  <div id="categoryContainer" class="" style="text-align: center;">
+    <ul id="categoryCard1" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check01" name="check" value="1">
+            <label for="check01" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody1" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="fruit.svg">
+                    <!-- <img id="fruit2" src="berry2.png" style="display: none;"> -->
+                    <p class="check-card-description" style="text-align: center;">
+                       خضروات و فواكة
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
 
+    <ul id="categoryCard2" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check02" name="check" value="1">
+            <label for="check02" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody2" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="meat.svg">
+                    <p class="check-card-description" style="text-align: center;">
+                       لحــوم
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+
+    <ul id="categoryCard3" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check03" name="check" value="1">
+            <label for="check03" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody3" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="coffee.svg">
+                    <p class="check-card-description" style="text-align: center;">
+                       شاي و قهوة
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+
+    <ul id="categoryCard4" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check04" name="check" value="1">
+            <label for="check04" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody4" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="plastics.svg">
+                    <p class="check-card-description" style="text-align: center;">
+                       مسلتزمات بلاستيكية
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+    
+</div>
   <!-- End Catrgories Carousel -->
 
   <!-- /////////////////////////////// START  SUPPLIER PROFILES /////////////////////////////-->
@@ -293,6 +371,8 @@
   integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="categoriesCarousel.js" type="text/javascript"></script>
+<script src="categoryCards.js"></script>
+
 <script>
   console.log(document.URL);
 </script>
