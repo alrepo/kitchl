@@ -48,6 +48,7 @@
 	overflow: hidden;
 	border: #1502be solid 0.5px;
 	border-radius: 10px;
+	-webkit-border-radius: 10px;
 	background-color: rgb(255, 255, 255);
 }
 .check-card li label {
@@ -60,7 +61,7 @@
 }
 .check-card .check-card-body {
 	height: 120px;
-	z-index: 2;
+	z-index: 10;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -85,6 +86,9 @@
 {
 	text-align: center;
 }
+.check-card.swiper-slide{
+	width: 150px
+}
 .check-card-description
 {
 	display: inline-block;
@@ -104,7 +108,7 @@
 	background: #1502be;
 	width: 36px;
 	height: 36px;
-	z-index: 5;
+	z-index: 50;
 	top: 5px;
 	left: 5px;
 	-webkit-border-radius: 50%;
@@ -114,12 +118,11 @@
 	position: absolute;
 	background: #1502be;
 	color : white;
-
 	-webkit-transition: all .4s ease-out;
 	transition: all .4s ease-out;
 	-webkit-transform:scale(1);
 	transform:scale(1);
-	z-index: 0;
+	z-index: 0; /*gfv*/
 }
 .check-card .check-card-toggle span 
 {
