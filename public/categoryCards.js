@@ -3,6 +3,10 @@
     var counter2 = 1;
     var counter3 = 1;
     var counter4 = 1;
+    var counter5 = 1;
+    var counter6 = 1;
+    var counter7 = 1;
+    var counter8 = 1;
 
     document.getElementById("categoryCard1").addEventListener("click", fontColorChange1);
 
@@ -99,5 +103,97 @@
         else
         {
             counter4 = 1;
+        }
+    }
+
+    document.getElementById("categoryCard5").addEventListener("click", fontColorChange5);
+
+    function fontColorChange5()
+    {
+        if(counter5 == 1)
+        {
+            counter5 = counter5 + 1;
+            console.log(document.getElementById("cardBody5").style.color);
+            if (document.getElementById("cardBody5").style.color == "blue")
+            {
+                document.getElementById("cardBody5").style.color = "white";
+            }
+            else if (document.getElementById("cardBody5").style.color == "white")
+            {
+                document.getElementById("cardBody5").style.color = "blue";
+            }
+        }
+        else
+        {
+            counter5 = 1;
+        }
+    }
+
+    document.getElementById("categoryCard6").addEventListener("click", fontColorChange6);
+
+    function fontColorChange6()
+    {
+        if(counter6 == 1)
+        {
+            counter6 = counter6 + 1;
+            console.log(document.getElementById("cardBody6").style.color);
+            if (document.getElementById("cardBody6").style.color == "blue")
+            {
+                document.getElementById("cardBody6").style.color = "white";
+            }
+            else if (document.getElementById("cardBody6").style.color == "white")
+            {
+                document.getElementById("cardBody6").style.color = "blue";
+            }
+        }
+        else
+        {
+            counter6 = 1;
+        }
+    }
+
+    document.getElementById("categoryCard7").addEventListener("click", fontColorChange7);
+
+    function fontColorChange7()
+    {
+        if(counter7 == 1)
+        {
+            counter7 = counter7 + 1;
+            console.log(document.getElementById("cardBody7").style.color);
+            if (document.getElementById("cardBody7").style.color == "blue")
+            {
+                document.getElementById("cardBody7").style.color = "white";
+            }
+            else if (document.getElementById("cardBody7").style.color == "white")
+            {
+                document.getElementById("cardBody7").style.color = "blue";
+            }
+        }
+        else
+        {
+            counter7 = 1;
+        }
+    }
+
+    document.getElementById("categoryCard8").addEventListener("click", fontColorChange8);
+
+    function fontColorChange8()
+    {
+        if(counter8 == 1)
+        {
+            counter8 = counter8 + 1;
+            console.log(document.getElementById("cardBody8").style.color);
+            if (document.getElementById("cardBody8").style.color == "blue")
+            {
+                document.getElementById("cardBody8").style.color = "white";
+            }
+            else if (document.getElementById("cardBody8").style.color == "white")
+            {
+                document.getElementById("cardBody8").style.color = "blue";
+            }
+        }
+        else
+        {
+            counter8 = 1;
         }
     }
