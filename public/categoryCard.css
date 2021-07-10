@@ -2,12 +2,12 @@
 	margin: 0;
 	padding: 0;
 }
-*, *:before, *:after {
+/* *, *:before, *:after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-} */
+} */ */
 #categoryContainer {
 	font-family: 'Josefin Sans', sans-serif;
 }
@@ -42,8 +42,8 @@
 } */
 .check-card .check-card-item {
 	position: relative;
-	width: 110px;
-	margin: 0 1% 10px;
+	width: 120px;
+	margin: 0 -35% 5px;
 	font-size: 12px;
 	overflow: hidden;
 	border: #1502be solid 0.5px;
