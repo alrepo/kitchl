@@ -43,6 +43,8 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- CSS Style File -->
   <link rel="stylesheet" href="../styles.css">
+  <!-- Category Cards Styles -->
+  <link rel="stylesheet" href="../categoryCard.css">
   <!-- Carousel Slick Styles & Theme CDN Links-->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
@@ -263,19 +265,179 @@
     </div>
   </div>
   <!-- /////////////////////////////// START  CONTENT /////////////////////////////-->
+  
+  <div id="categoryContainer" class="" style="text-align: center;">
+    <ul id="categoryCard1" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check01" name="check" value="1">
+            <label for="check01" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody1" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="../fruit.svg">
+                    <!-- <img id="fruit2" src="berry2.png" style="display: none;"> -->
+                    <p class="check-card-description" style="text-align: center;">
+                       خضروات و فواكة
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
 
-  <!-- Start Catrgories Carousel -->
-  <div class="carouselWrapper" dir="ltr">
-    <div class="carousel">
-      <div type="button" class="carouselButton"><img src="https://picsum.photos/300/200?random=1"></div>
-      <div type="button" class="carouselButton"><img src="https://picsum.photos/300/200?random=2"></div>
-      <div type="button" class="carouselButton"><img src="https://picsum.photos/300/200?random=3"></div>
-      <div type="button" class="carouselButton"><img src="https://picsum.photos/300/200?random=4"></div>
-      <div type="button" class="carouselButton"><img src="https://picsum.photos/300/200?random=5"></div>
-      <div type="button" class="carouselButton"><img src="https://picsum.photos/300/200?random=6"></div>
-    </div>
+    <ul id="categoryCard2" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check02" name="check" value="1">
+            <label for="check02" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody2" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="../meat.svg">
+                    <p class="check-card-description" style="text-align: center;">
+                       لحــوم
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+
+    <ul id="categoryCard3" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check03" name="check" value="1">
+            <label for="check03" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody3" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="../coffee.svg">
+                    <p class="check-card-description" style="text-align: center;">
+                       شاي و قهوة
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+
+    <ul id="categoryCard4" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check04" name="check" value="1">
+            <label for="check04" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody4" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img class="categoryImage" src="../plastics.svg">
+                    <p class="check-card-description" style="text-align: center;">
+                       مسلتزمات بلاستيكية
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+
+    <ul id="categoryCard5" class="check-card" style="display: inline-block">
+      <li class="check-card-item">
+          <input type="checkbox" id="check05" name="check" value="1">
+          <label for="check05" class="radio"></label>
+          <div class="check-card-bg"></div>
+          <div id="cardBody5" style="color:blue;" class="check-card-body" >
+              <div class="check-card-toggle">
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="check-card-body-in">
+                  <img class="categoryImage" src="../fruit.svg">
+                  <!-- <img id="fruit2" src="berry2.png" style="display: none;"> -->
+                  <p class="check-card-description" style="text-align: center;">
+                     خضروات و فواكة
+                  </p>
+              </div>
+              <!-- <div class="check-card-cancel">CANCEL</div> -->
+          </div>
+      </li>
+  </ul>
+
+  <ul id="categoryCard6" class="check-card" style="display: inline-block">
+      <li class="check-card-item">
+          <input type="checkbox" id="check06" name="check" value="1">
+          <label for="check06" class="radio"></label>
+          <div class="check-card-bg"></div>
+          <div id="cardBody6" style="color:blue;" class="check-card-body" >
+              <div class="check-card-toggle">
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="check-card-body-in">
+                  <img class="categoryImage" src="../meat.svg">
+                  <p class="check-card-description" style="text-align: center;">
+                     لحــوم
+                  </p>
+              </div>
+              <!-- <div class="check-card-cancel">CANCEL</div> -->
+          </div>
+      </li>
+  </ul>
+
+  <ul id="categoryCard7" class="check-card" style="display: inline-block">
+      <li class="check-card-item">
+          <input type="checkbox" id="check07" name="check" value="1">
+          <label for="check07" class="radio"></label>
+          <div class="check-card-bg"></div>
+          <div id="cardBody7" style="color:blue;" class="check-card-body" >
+              <div class="check-card-toggle">
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="check-card-body-in">
+                  <img class="categoryImage" src="../coffee.svg">
+                  <p class="check-card-description" style="text-align: center;">
+                     شاي و قهوة
+                  </p>
+              </div>
+              <!-- <div class="check-card-cancel">CANCEL</div> -->
+          </div>
+      </li>
+  </ul>
+
+  <ul id="categoryCard8" class="check-card" style="display: inline-block">
+      <li class="check-card-item">
+          <input type="checkbox" id="check08" name="check" value="1">
+          <label for="check08" class="radio"></label>
+          <div class="check-card-bg"></div>
+          <div id="cardBody8" style="color:blue;" class="check-card-body" >
+              <div class="check-card-toggle">
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="check-card-body-in">
+                  <img class="categoryImage" src="../plastics.svg">
+                  <p class="check-card-description" style="text-align: center;">
+                     مسلتزمات بلاستيكية
+                  </p>
+              </div>
+              <!-- <div class="check-card-cancel">CANCEL</div> -->
+          </div>
+      </li>
+  </ul>
+    
   </div>
-  <!-- End Catrgories Carousel -->
 
   <!-- /////////////////////////////// START  SUPPLIER PROFILES /////////////////////////////-->
 
@@ -296,7 +458,7 @@
   integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../categoriesCarousel.js" type="text/javascript"></script>
-
+<script src="../categoryCards.js"></script>
 <script src="logout.js"></script>
 
 <script type="text/javascript">
