@@ -197,7 +197,7 @@ body
 #carouselContainer
 {
   position: relative;
-  height: 150px;
+  height: 200px;
   width: 100%;
 }
 .carouselWrapper{
@@ -227,6 +227,8 @@ body
   cursor: pointer;
   display: flex !important;
   align-self: center !important;
+  height: 120px;
+  width: 120px;
 }
 .carousel{
   width:90%;
@@ -236,6 +238,24 @@ body
 .slick-slide{
   margin:10px;
 }
+button.slick-prev.slick-arrow
+{
+  display: flex !important;
+  align-self: center !important;
+  margin-top: 15px;
+  margin-bottom: auto;
+}
+button.slick-next.slick-arrow
+{
+  display: flex !important;
+  align-self: center !important;
+  margin-top: 15px;
+  margin-bottom: auto;
+}
+/* .slick-next, .slick-prev {
+  height: 30px !important;
+  width: 30px !important;
+} */
 .slick-slide img{
   width:100%;
   border: 2px solid #fff;
@@ -250,6 +270,8 @@ body
 }
  
 /*//////////////// END  OF CATEGORIES CAROUSEL STYLES ////////////////*/
+
+
 
 /* /////////////// START MOBILE PHONE STYLES ////////////// */
 @media (max-width: 519.9px)
