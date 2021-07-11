@@ -7,10 +7,8 @@
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-} */ */
-#categoryContainer {
-	font-family: 'Josefin Sans', sans-serif;
-}
+} */ 
+
 .check-card {
 	list-style: none;
 	margin:10px auto;
@@ -33,13 +31,6 @@
 	margin-top: 20px;
 	height: 70px;
 }
-/* #fruit2
-{
-	display: flex;
-	align-self: center;
-	margin-left: auto;
-	margin-right: auto;
-} */
 .check-card .check-card-item {
 	position: relative;
 	width: 120px;
@@ -170,6 +161,49 @@
 .check-card input[type=checkbox]:checked ~ .check-card-bg{
 	-webkit-transform:scale(25);
 	transform:scale(25);
+}
+@media (max-width: 519px) 
+{
+	.check-card {
+		list-style: none;
+		margin:10px auto;
+		width: 100px;
+	}
+	.check-card li label 
+	{
+		display: block;
+		position: absolute;
+		height: 100px;
+		width: 100%;
+		z-index: 100;
+		cursor: pointer;
+	}
+	.check-card .check-card-body 
+	{
+		height: 100px;
+		z-index: 10;
+		position: relative;
+		display: flex;
+		justify-content: center;
+	}
+	.categoryImage
+	{
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 15px;
+		height: 50px;
+	}
+	.check-card .check-card-item {
+		position: relative;
+		width: 100px;
+		margin: 0 -10% 5px;
+		font-size: 10px;
+		overflow: hidden;
+		border: #1502be solid 0.5px;
+		border-radius: 10px;
+		-webkit-border-radius: 8px;
+		background-color: rgb(255, 255, 255);
+	}
 }
 @media (min-width: 985px) 
 {
