@@ -1,256 +1,401 @@
-/* * {
-	margin: 0;
-	padding: 0;
-}
-/* *, *:before, *:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-} */ 
 
-#categoryContainer {
-	font-family: 'Josefin Sans', sans-serif;
+body
+ {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: auto;
+    color: black;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+/*  Start of Colored/Large Loading Animation */
+.loadingAnimation
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    background-color: white;  
 }
-.check-card {
-	list-style: none;
-	margin:10px auto;
-  	width: 120px;
+.loadingAnimation.hidden
+{
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
 }
-.check-card-item {
-	/* Add shadows to create the "card" effect */
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	transition: 0.3s;
+@keyframes fadeOut
+{
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+  .dots {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  /* On mouse-over, add a deeper shadow */
-  .check-card-item:hover {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #022e57;
   }
-.categoryImage
+  
+  .dot:nth-child(1) {
+    transform: translateX(100%);
+    background-color: #39a9cb; 
+    animation: left 1s ease alternate infinite;
+  }
+  
+  .dot:nth-child(2) {
+    animation: center 1s ease infinite;
+  }
+  
+  .dot:nth-child(3) {
+    transform: translateX(-100%);
+    background-color: #eba83a;
+    animation: right 1s ease alternate infinite;
+  }
+  
+  @keyframes left {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    50% {
+      transform: translateX(-10%);
+    }
+  
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes right {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    50% {
+      transform: translateX(10%);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes center {
+    0%,
+    100% {
+      transform: scale(0.5);
+    }
+  
+    50% {
+      transform: scale(1);
+    }
+  }
+/*  End of Colored/Large Loading Animation */
+
+#signupHyperlink
 {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 20px;
-	height: 70px;
+  color: #fff;
+  text-decoration: none;
 }
-.check-card .check-card-item {
-	position: relative;
-	width: 120px;
-	margin: 0 -35% 5px;
-	font-size: 12px;
-	overflow: hidden;
-	border: #1502be solid 0.5px;
-	border-radius: 10px;
-	-webkit-border-radius: 10px;
-	background-color: rgb(255, 255, 255);
-}
-.check-card li label {
-	display: block;
-	position: absolute;
-	height: 120px;
-	width: 100%;
-	z-index: 100;
-	cursor: pointer;
-}
-.check-card .check-card-body {
-	height: 120px;
-	z-index: 10;
-	position: relative;
-	display: flex;
-	justify-content: center;
-}
-#cardBody1
+.signup
 {
-	color: blue;
+  margin-left: 5px;
+  color: white;
 }
-#cardBody2
+#supplierProfileCardsContainer
 {
-	color: blue;
+  display: block;
+  background-color: #fff;
 }
-#cardBody3
+.book{
+  height: 270px;
+}
+.card-img-top
 {
-	color: blue;
+  max-width : 130px;
+  max-height : 130px;
+  margin-left: auto;
+  margin-right: auto;
 }
-#cardBody4
+#barberImage
 {
-	color: blue;
+  max-width : 180px;
+  max-height : 180px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.check-card .check-card-body-in 
+#logoFont
 {
-	text-align: center;
+  font-family: 'Tajawal', sans-serif;
 }
-.check-card.swiper-slide{
-	width: 150px
+.swiper-container {
+  width: 100%;
+  height: 180px;
 }
-.check-card-description
+.swiper-button-prev,.swiper-button-next
 {
-	display: inline-block;
-	margin-top: 5px;
-	font-size: 14px;
-	margin-left: auto;
-	margin-right: auto;
+  color: blue;
+  background-color: rgb(196, 255, 252);
+  padding: 20px !important;
+  border-radius: 5px;
+  border: solid 0.5px blue;
 }
-.check-card .check-card-title {
-	font-family: 'Oswald', sans-serif;
-	font-size: 14px;
-	margin-bottom: 5px;
-}
-.check-card .check-card-bg,
-.check-card .check-card-toggle {
-	position: absolute;
-	background: #1502be;
-	width: 36px;
-	height: 36px;
-	z-index: 50;
-	top: 5px;
-	left: 5px;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-}
-.check-card .check-card-bg{
-	position: absolute;
-	background: #1502be;
-	color : white;
-	-webkit-transition: all .4s ease-out;
-	transition: all .4s ease-out;
-	-webkit-transform:scale(1);
-	transform:scale(1);
-	z-index: 0; /*gfv*/
-}
-.check-card .check-card-toggle span 
+@media (max-width: 767.98px)
 {
-	position: absolute;
-	display: block;
-	width: 20px;
-	margin-left: -10px;
-	height: 1px;
-	top: 50%;
-	left: 50%;
-	background: #fff;
-	-webkit-transition: all .6s ease-out;
-	transition: all .6s ease-out;
-	-webkit-transform: rotate(-270deg);
-	transform: rotate(-270deg);
+  .dropdown-menu
+  {
+    text-align: left;
+  }
+  ul.bottomNavBar {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+       background-color: #892cdc;
+       margin-top: 70px;
+       width: 100%;
+       display: flex;
+       justify-content: center;
+     }
+
+     ul.bottomNavBar li button {
+       display: block;
+       color: #fff;
+       text-align: center;
+       padding: 2px 4px;
+       text-decoration: none;
+       background-color: #892cdc;
+       border: none;
+     }
+
+     ul.bottomNavBar li button:hover {
+       text-decoration: none;
+       color: #fff;
+       background-color: #52057b;
+     }
+     .content
+     {
+       height: 500px;
+       width: 2500px;
+       background-color: #f4f4f2;
+       margin-top: 2px;
+       margin-right: 2px;
+       margin-left: 2px;
+       display: flex;
+       justify-content: center;
+     }
 }
-.check-card .check-card-toggle span:first-child {
-	-webkit-transform: rotate(180deg);
-	transform: rotate(180deg);
+@media (min-width: 520px)
+{
+  #searchBoxRow
+  {
+    padding: 50px;
+  }
 }
-/* .check-card .check-card-cancel {
-	font-size: 12px;
-	border-top: solid 1px #fff;
-	border-bottom: solid 1px #fff;
-	padding: 4px 0 4px;
-	text-align: center;
-	position: absolute;
-	bottom: -50px;
-	margin: 0 7%;
-	width: 86%;
-	-webkit-transition: all .3s cubic-bezier(0.5, -0.8, 0.5, 1.8);
-	transition: all .3s cubic-bezier(0.5, -0.8, 0.5, 1.8);
+
+/*//////////////// START CATEGORIES CAROUSEL  STYLES /////////////////*/
+#carouselContainer
+{
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+.carouselWrapper{
+  display:block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  text-align:center;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.slick-track
+{
+ display: flex;
+ align-content: center;
+ height: 100px !important; 
+ width: 100%;
+ margin-left: 0;
+ margin-right: 0;
+}
+.carouselButton
+{
+  cursor: pointer;
+  display: flex !important;
+  align-self: center !important;
+  height: 120px;
+  width: 120px;
+}
+.carousel{
+  width:90%;
+  margin:0px auto;
+  height: 70%;
+}
+.slick-slide{
+  margin:10px;
+}
+button.slick-prev.slick-arrow
+{
+  display: flex !important;
+  align-self: center !important;
+  margin-top: 15px;
+  margin-bottom: auto;
+}
+button.slick-next.slick-arrow
+{
+  display: flex !important;
+  align-self: center !important;
+  margin-top: 15px;
+  margin-bottom: auto;
+}
+/* .slick-next, .slick-prev {
+  height: 30px !important;
+  width: 30px !important;
 } */
-.check-card input[type=checkbox] {
-	display: none;
+.slick-slide img{
+  width:100%;
+  border: 2px solid #fff;
 }
-.check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span {
-	-webkit-transform: rotate(0deg);
-	transform: rotate(0deg);
-}
-.check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span:first-child {
-	-webkit-transform: rotate(0deg);
-	transform: rotate(0deg);
-}
-.check-card input[type=checkbox]:checked ~ .check-card-bg{
-	-webkit-transform:scale(25);
-	transform:scale(25);
-}
-@media (max-width: 519px) 
+.slick-next:before, .slick-prev:before, .slick-dots li.slick-active button:before 
 {
-	.check-card {
-		list-style: none;
-		margin:10px auto;
-		width: 100px;
-	}
-	.check-card li label 
-	{
-		display: block;
-		position: absolute;
-		height: 100px;
-		width: 100%;
-		z-index: 100;
-		cursor: pointer;
-	}
-	.check-card .check-card-body 
-	{
-		height: 100px;
-		z-index: 10;
-		position: relative;
-		display: flex;
-		justify-content: center;
-	}
-	.categoryImage
-	{
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 15px;
-		height: 50px;
-	}
-	.check-card .check-card-item {
-		position: relative;
-		width: 100px;
-		margin: 0 -10% 5px;
-		font-size: 10px;
-		overflow: hidden;
-		border: #1502be solid 0.5px;
-		border-radius: 10px;
-		-webkit-border-radius: 8px;
-		background-color: rgb(255, 255, 255);
-	}
+  color: rgb(48, 15, 197) !important;
 }
-@media (min-width: 985px) 
+.carouselWrapper .slick-dots li button:before {
+  font-size:20px;
+  color:rgb(20, 3, 173);
+}
+ 
+/*//////////////// END  OF CATEGORIES CAROUSEL STYLES ////////////////*/
+
+
+
+/* /////////////// START MOBILE PHONE STYLES ////////////// */
+@media (max-width: 519.9px)
 {
-	.check-card {
-		list-style: none;
-		margin:10px auto;
-		width: 170px;
-	}
-	.check-card li label 
-	{
-		display: block;
-		position: absolute;
-		height: 120px;
-		width: 100%;
-		z-index: 100;
-		cursor: pointer;
-	}
-	.check-card .check-card-body 
-	{
-		height: 150px;
-		z-index: 10;
-		position: relative;
-		display: flex;
-		justify-content: center;
-	}
-	.categoryImage
-	{
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 30px;
-		height: 90px;
-	}
-	.check-card .check-card-item {
-		position: relative;
-		width: 150px;
-		margin: 0 -15% 5px;
-		font-size: 12px;
-		overflow: hidden;
-		border: #1502be solid 0.5px;
-		border-radius: 10px;
-		-webkit-border-radius: 10px;
-		background-color: rgb(255, 255, 255);
-	}
+  #searchBoxRow
+  {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
-/* .check-card input[type=checkbox]:checked ~ .check-card-body .check-card-cancel {
-	bottom: 10px;
-} */
+
+@media (max-width: 991.9px)
+{
+
+}
+@media (min-width: 992px)
+{
+  .dropdown-menu
+  {
+    text-align: right;
+  }
+  #noneCollapsedNavbarItems
+  {
+    display: none;
+  }
+  /* ////////////START SIDEBAR STYLES/////////////// */
+  .feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+
+  /*
+   * Sidebar
+   */
+
+  .sidebar {
+    text-align: right;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    right: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 0;
+  }
+
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px; /* Height of navbar */
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #892cdc;
+    width: 220px;
+    }
+
+  .sidebar button {
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+    width: 165px;
+    margin-left: 10px;
+    background-color: #892cdc;
+    text-align: right;
+    width: 90%;
+    }
+  .sidebar button:hover{
+    background-color: #52057b;
+  }
+  .sidebar button .feather {
+    margin-right: 4px;
+    color: #000;
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+  /*
+   * Navbar
+   */
+  .navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+
+  .form-control-dark {
+    color: #fff;
+    background-color: #892cdc;
+  }
+
+  .form-control-dark:focus {
+    border-color: transparent;
+  }
+  /*
+   * Utilities
+   */
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1x solid #e5e5e5; }
+  /* ////////////END SIDEBAR STYLES/////////////// */
+
+  .content
+  {
+    height: 500px;
+    width: 2500px;
+    background-color: #f4f4f2;
+    margin-top: 74px;
+    margin-right: 223px;
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+  }
+}
