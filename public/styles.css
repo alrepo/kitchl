@@ -314,7 +314,12 @@ button.slick-next.slick-arrow
   #locationColumn
   {
     position: relative;
-    margin-top: 100px !important;
+    margin-top: 400px !important;
+  }
+  .form-select-province,.form-select-city
+  {
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media (max-width: 530px)
