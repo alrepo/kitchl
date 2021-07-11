@@ -5,6 +5,7 @@ body
     box-sizing: border-box;
     width: auto;
     color: black;
+    background-color: cornflowerblue;
     font-family: 'Tajawal', sans-serif;
   }
 
@@ -115,7 +116,25 @@ body
 #supplierProfileCardsContainer
 {
   display: block;
-  background-color: #fff;
+  background-color: cornflowerblue;
+}
+
+.form-select-province,.form-select-city
+{
+  border-radius: 15px;
+  text-align: center !important;
+  border: none;
+	background: #1502be;
+  color: #fff;
+  outline: none !important;
+  max-width: 200px;
+}
+.form-select-city[disabled]
+{
+  background-color: cornflowerblue;
+  border: solid 1px #1502be;
+
+  color: rgb(179, 181, 187);
 }
 .book{
   height: 270px;
@@ -200,6 +219,7 @@ body
 {
   #searchBoxRow
   {
+    min-height: 300px;
     padding: 50px;
   }
 }
@@ -285,7 +305,19 @@ button.slick-next.slick-arrow
 
 
 /* /////////////// START MOBILE PHONE STYLES ////////////// */
-@media (max-width: 519.9px)
+@media (max-width: 576px)
+{
+  #emptyKitchenImageColumn
+  {
+    display: none;
+  }
+  #locationColumn
+  {
+    position: relative;
+    margin-top: 100px !important;
+  }
+}
+@media (max-width: 530px)
 {
   #searchBoxRow
   {
@@ -293,7 +325,6 @@ button.slick-next.slick-arrow
     padding-bottom: 50px;
   }
 }
-
 @media (max-width: 991.9px)
 {
 
