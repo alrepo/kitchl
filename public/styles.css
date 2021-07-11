@@ -305,6 +305,13 @@ button.slick-next.slick-arrow
 
 
 /* /////////////// START MOBILE PHONE STYLES ////////////// */
+@media (min-width: 576.1px) 
+{
+  #searchBoxRow
+  {
+    margin-top: 50px !important;
+  }
+}
 @media (max-width: 576px)
 {
   #emptyKitchenImageColumn
@@ -313,7 +320,6 @@ button.slick-next.slick-arrow
   }
   #locationColumn
   {
-    position: relative;
     margin-top: 400px !important;
   }
   .form-select-province,.form-select-city
@@ -327,13 +333,10 @@ button.slick-next.slick-arrow
   #searchBoxRow
   {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
   }
 }
-@media (max-width: 991.9px)
-{
 
-}
 @media (min-width: 992px)
 {
   .dropdown-menu
