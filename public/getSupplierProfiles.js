@@ -1,3 +1,5 @@
+window.onload = function(){
+
 
 console.log("inside getSupplierProfiles.js file")
 
@@ -173,3 +175,5 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   });
 }
 /////////////////// END OF Supplier CARDS POPULATING ////////////////////
+
+}
