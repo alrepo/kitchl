@@ -21,7 +21,11 @@ console.log("inside getSupplierProfiles.js file")
 
             newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
           }
-          loader.classList.add("hidden");
+          setTimeout(function()
+          {
+             loader.classList.add("hidden");
+          }, 2000);
+          
         } else {
             // doc.data() will be undefined in this case
             loader.classList.add("hidden");
