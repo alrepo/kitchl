@@ -1,11 +1,12 @@
+const loader = document.querySelector(".loadingAnimation");
+          loader.classList.remove("hidden");
 window.onload = function(){
 
 
 console.log("inside getSupplierProfiles.js file")
 
 //////////////////////// START DATA FETCHING ///////////////////////////
-          const loader = document.querySelector(".loadingAnimation");
-          loader.classList.remove("hidden");
+          
 
     var suppliers = db.collection("suppliers").doc("Supplier Profiles");
 
