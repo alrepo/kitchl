@@ -44,7 +44,7 @@
 	-webkit-border-radius: 10px;
 	background-color: #fff !important;
 }
-img {
+img.categoryImage {
 	filter: grayscale(100%);
   }
 .check-card li label {
