@@ -44,6 +44,9 @@
 	-webkit-border-radius: 10px;
 	background-color: #fff !important;
 }
+img {
+	filter: grayscale(100%);
+  }
 .check-card li label {
 	display: block;
 	position: absolute;
