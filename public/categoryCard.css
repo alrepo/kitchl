@@ -1,13 +1,28 @@
-/* * {
-	margin: 0;
-	padding: 0;
-}
-/* *, *:before, *:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
-} */ 
+
+/* start scroll bar styles */
+div.scrollmenu {
+	background-color: cornflowerblue;
+	overflow: auto;
+	white-space: nowrap;
+	margin-bottom: 10px;
+  }
+  
+  div.scrollmenu ul li {
+	white-space: normal;
+  }
+
+  ::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+	-webkit-overflow-scrolling: auto;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+  /* end scroll bar styles */
 
 .check-card {
 	list-style: none;
