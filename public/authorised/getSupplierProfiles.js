@@ -97,7 +97,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   img.className =  "card-img-top"
   img.style.width= "100%";
   img.id = supplierID+"image"
-  img.src = "../"+supplierProfileImage;
+  img.src = supplierProfileImage;
   div3.className = "card-body d-flex justify-content-center"
   div3.style.position = "relative";
   div4.className = "text-center"
