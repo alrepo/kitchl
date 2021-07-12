@@ -19,17 +19,13 @@
             if (document.getElementById("cardBody1").style.color == "blue")
             {
                 document.getElementById("cardBody1").style.color = "white";
-                document.getElementById("categoryImage1").src = "fruit.svg"
-                // document.getElementById("berry1").style.display = "none";
-                // document.getElementById("berry2").style.display = "block";
+                document.getElementById("categoryImage1").style.filter = "grayscale(0%)"
 
             }
             else if (document.getElementById("cardBody1").style.color == "white")
             {
                 document.getElementById("cardBody1").style.color = "blue";
-                document.getElementById("categoryImage1").src = "apple-no-color.svg"
-                // document.getElementById("berry2").style.display = "none";
-                // document.getElementById("berry1").style.display = "block";
+                document.getElementById("categoryImage1").style.filter = "grayscale(100%)";
             }
         }
         else
@@ -49,10 +45,12 @@
             if (document.getElementById("cardBody2").style.color == "blue")
             {
                 document.getElementById("cardBody2").style.color = "white";
+                document.getElementById("categoryImage2").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody2").style.color == "white")
             {
                 document.getElementById("cardBody2").style.color = "blue";
+                document.getElementById("categoryImage2").style.filter = "grayscale(100%)"
                 
             }
         }
@@ -73,10 +71,12 @@
             if (document.getElementById("cardBody3").style.color == "blue")
             {
                 document.getElementById("cardBody3").style.color = "white";
+                document.getElementById("categoryImage3").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody3").style.color == "white")
             {
                 document.getElementById("cardBody3").style.color = "blue";
+                document.getElementById("categoryImage3").style.filter = "grayscale(100%)"
             }
         }
         else
@@ -96,10 +96,12 @@
             if (document.getElementById("cardBody4").style.color == "blue")
             {
                 document.getElementById("cardBody4").style.color = "white";
+                document.getElementById("categoryImage4").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody4").style.color == "white")
             {
                 document.getElementById("cardBody4").style.color = "blue";
+                document.getElementById("categoryImage4").style.filter = "grayscale(100%)"
             }
         }
         else
@@ -119,10 +121,12 @@
             if (document.getElementById("cardBody5").style.color == "blue")
             {
                 document.getElementById("cardBody5").style.color = "white";
+                document.getElementById("categoryImage5").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody5").style.color == "white")
             {
                 document.getElementById("cardBody5").style.color = "blue";
+                document.getElementById("categoryImage5").style.filter = "grayscale(100%)"
             }
         }
         else
@@ -142,10 +146,12 @@
             if (document.getElementById("cardBody6").style.color == "blue")
             {
                 document.getElementById("cardBody6").style.color = "white";
+                document.getElementById("categoryImage6").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody6").style.color == "white")
             {
                 document.getElementById("cardBody6").style.color = "blue";
+                document.getElementById("categoryImage6").style.filter = "grayscale(100%)"
             }
         }
         else
@@ -165,10 +171,12 @@
             if (document.getElementById("cardBody7").style.color == "blue")
             {
                 document.getElementById("cardBody7").style.color = "white";
+                document.getElementById("categoryImage7").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody7").style.color == "white")
             {
                 document.getElementById("cardBody7").style.color = "blue";
+                document.getElementById("categoryImage7").style.filter = "grayscale(100%)"
             }
         }
         else
@@ -188,10 +196,12 @@
             if (document.getElementById("cardBody8").style.color == "blue")
             {
                 document.getElementById("cardBody8").style.color = "white";
+                document.getElementById("categoryImage8").style.filter = "grayscale(0%)"
             }
             else if (document.getElementById("cardBody8").style.color == "white")
             {
                 document.getElementById("cardBody8").style.color = "blue";
+                document.getElementById("categoryImage8").style.filter = "grayscale(100%)"
             }
         }
         else
