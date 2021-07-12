@@ -19,6 +19,7 @@
             if (document.getElementById("cardBody1").style.color == "blue")
             {
                 document.getElementById("cardBody1").style.color = "white";
+                document.getElementById("categoryImage1").src = "fruit.svg"
                 // document.getElementById("berry1").style.display = "none";
                 // document.getElementById("berry2").style.display = "block";
 
@@ -26,6 +27,7 @@
             else if (document.getElementById("cardBody1").style.color == "white")
             {
                 document.getElementById("cardBody1").style.color = "blue";
+                document.getElementById("categoryImage1").src = "apple-no-color.svg"
                 // document.getElementById("berry2").style.display = "none";
                 // document.getElementById("berry1").style.display = "block";
             }
