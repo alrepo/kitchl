@@ -1,5 +1,5 @@
 
-console.log("inside authorised getSupplierProfiles.js file")
+console.log("inside getSupplierProfiles.js file")
 
 //////////////////////// START DATA FETCHING ///////////////////////////
           const loader = document.querySelector(".loadingAnimation");
@@ -17,10 +17,9 @@ console.log("inside authorised getSupplierProfiles.js file")
             let supplierID = data[key]["supplierID"]
             let province = data[key]["supplierProvince"]
             let city = data[key]["supplierCity"]
-            let products = data[key]["products"]
+            let services = data[key]["services"]
 
-            // console.log( key, data[key] );
-            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products)
+            newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
           }
           loader.classList.add("hidden");
         } else {
@@ -33,6 +32,7 @@ console.log("inside authorised getSupplierProfiles.js file")
     });
 //////////////////////// EDN OF DATA FETCHING ///////////////////////////
 
+/////////////////// START OF Supplier CARDS POPULATING ///////////////////
 
 function newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
 {
@@ -87,12 +87,17 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
     provinceName = "";
       }
 
-  div1.className = "col-xs-3 col-sm-6 col-md-6 col-lg-3 supplier "+provinceName+" "+(city.replace(/\s/g, ''))
-  div2.className = "card w-100 mb-2 btn book"
+  div1.className = "ml-1 mr-1 supplier "+provinceName+" "+(city.replace(/\s/g, ''))
+  div2.className = "card mb-2 btn book"
   div2.id = supplierID;
+  div2.style.borderRadius = "15px";
+  div2.style.color ="blue";
+  div1.style.display = "inline-block";
+  // div2.style.boxShadow = "0 4px 8px 0 rgba(0,0,0,0.2)";
   img.className =  "card-img-top"
+  img.style.width= "100%";
   img.id = supplierID+"image"
-  img.src = supplierProfileImage;
+  img.src = "../"+supplierProfileImage;
   div3.className = "card-body d-flex justify-content-center"
   div3.style.position = "relative";
   div4.className = "text-center"
@@ -101,8 +106,8 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   div5.style.bottom = "0";
   h5.className = "card-title"
   h5.style.textAlign = "center"
-  h5.style.overflow = "auto";
   h5.innerText = name
+  h5.style.overflow = "auto";
   h5.id = supplierID+"name"
   image.src = "../images/locationIcon-small.png";    
   span1.className = "text-right "+supplierID+"province"
@@ -167,3 +172,4 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
     window.location.assign("supplierProfile\\"+supplier_id);
   });
 }
+/////////////////// END OF Supplier CARDS POPULATING ////////////////////
