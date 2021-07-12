@@ -1,5 +1,6 @@
 const loader = document.querySelector(".loadingAnimation");
-          loader.classList.remove("hidden");
+loader.classList.remove("hidden");
+
 window.onload = function(){
 
 
@@ -24,7 +25,6 @@ console.log("inside getSupplierProfiles.js file")
 
             newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
           }
-          loader.classList.add("hidden");
         } else {
             // doc.data() will be undefined in this case
             loader.classList.add("hidden");
@@ -178,3 +178,4 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
 /////////////////// END OF Supplier CARDS POPULATING ////////////////////
 
 }
+loader.classList.add("hidden");
