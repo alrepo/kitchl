@@ -71,6 +71,7 @@ div.scrollmenu {
 }
 img.categoryImage {
 	filter: grayscale(100%);
+	width: 100%;
   }
 #categoryImage1 {
 	filter: grayscale(0);
