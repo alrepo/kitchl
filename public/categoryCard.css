@@ -351,7 +351,7 @@ img.categoryImage {
 		cursor: pointer;
 	}
 	.check-card .check-card-body {
-		height: 125px;
+		height: 130px;
 		z-index: 10;
 		position: relative;
 		display: flex;
@@ -377,7 +377,7 @@ img.categoryImage {
 	}
 	#largeFontSmallScreenHandling
 	{
-		margin-top: 2px;
+		margin-top: 1px;
 	}
 }
 
