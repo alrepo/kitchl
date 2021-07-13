@@ -263,27 +263,27 @@
   <!-- @media (min-width: 520px) -->
   <div id="categoryContainer" class="container-fluid d-flex justify-content-center" style="text-align: center; padding:0;">
     <div class="scrollmenu">
-        <ul id="categoryCard1" class="check-card" style="display: inline-block">
-          <li class="check-card-item">
-              <input type="checkbox" id="check01" name="check" value="1">
-              <label for="check01" class="radio"></label>
-              <div class="check-card-bg"></div>
-              <div id="cardBody1" style="color:blue;" class="check-card-body" >
-                  <div class="check-card-toggle">
-                      <span></span>
-                      <span></span>
-                  </div>
-                  <div class="check-card-body-in">
-                      <img id="categoryImage1" class="categoryImage" src="fruit.svg">
-                      <!-- <img id="fruit2" src="berry2.png" style="display: none;"> -->
-                      <p class="check-card-description disabled" style="text-align: center;">
-                        خضروات و فواكة
-                      </p>
-                  </div>
-                  <!-- <div class="check-card-cancel">CANCEL</div> -->
+      <ul id="categoryCard1" class="check-card allCategoriesCard" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check01" name="check" value="1">
+            <label for="check01" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody1" style="color:white" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span ></span>
+                    <span ></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img id="categoryImage1" class="categoryImage" src="../food-basket.svg">
+                    <p class="noselect check-card-description disabled" style="text-align: center;">
+                      جميع الأصناف
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
               </div>
             </li>
         </ul>
+        
         <ul id="categoryCard2" class="check-card" style="display: inline-block">
           <li class="check-card-item">
               <input type="checkbox" id="check02" name="check" value="1">
@@ -295,8 +295,8 @@
                       <span></span>
                   </div>
                   <div class="check-card-body-in">
-                      <img id="categoryImage2" class="categoryImage" src="meat.svg">
-                      <p class="check-card-description" style="text-align: center;">
+                      <img id="categoryImage2" class="categoryImage" src="../meat.svg">
+                      <p class="noselect check-card-description disabled" style="text-align: center;">
                          لحــوم
                       </p>
                   </div>
@@ -315,8 +315,8 @@
                       <span></span>
                   </div>
                   <div class="check-card-body-in">
-                      <img id="categoryImage3" class="categoryImage" src="coffee.svg">
-                      <p class="check-card-description" style="text-align: center;">
+                      <img id="categoryImage3" class="categoryImage" src="../coffee.svg">
+                      <p class="noselect check-card-description" style="text-align: center;">
                          شاي و قهوة
                       </p>
                   </div>
@@ -335,8 +335,8 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage4" class="categoryImage" src="plastics.svg">
-                    <p class="check-card-description" style="text-align: center;">
+                    <img id="categoryImage4" class="categoryImage" src="../plastics.svg">
+                    <p id="largeFontSmallScreenHandling" class="noselect check-card-description" style="text-align: center;">
                        مسلتزمات بلاستيكية
                     </p>
                 </div>
@@ -355,10 +355,10 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage5" class="categoryImage" src="fruit.svg">
+                    <img id="categoryImage5" class="categoryImage" src="../fruit.svg">
                     <!-- <img id="fruit2" src="berry2.png" style="display: none;"> -->
-                    <p class="check-card-description" style="text-align: center;">
-                       خضروات و فواكة
+                    <p class="noselect check-card-description disabled" style="text-align: center;">
+                      خضروات و فواكة
                     </p>
                 </div>
                 <!-- <div class="check-card-cancel">CANCEL</div> -->
@@ -376,37 +376,36 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage6" class="categoryImage" src="meat.svg">
-                    <p class="check-card-description" style="text-align: center;">
-                       لحــوم
+                    <img id="categoryImage6" class="categoryImage" src="../meat.svg">
+                    <p class="noselect check-card-description" style="text-align: center;">
+                      المخبوزات
                     </p>
                 </div>
                 <!-- <div class="check-card-cancel">CANCEL</div> -->
             </div>
         </li>
     </ul>
-    <ul id="categoryCard7" class="check-card" style="display: inline-block">
-      <li class="check-card-item">
-          <input type="checkbox" id="check07" name="check" value="1">
-          <label for="check07" class="radio"></label>
-          <div class="check-card-bg"></div>
-          <div id="cardBody7" style="color:blue;" class="check-card-body" >
-              <div class="check-card-toggle">
-                  <span></span>
-                  <span></span>
-              </div>
-              <div class="check-card-body-in">
-                  <img id="categoryImage7" class="categoryImage" src="coffee.svg">
-                  <p class="check-card-description" style="text-align: center;">
-                     شاي و قهوة
-                  </p>
-              </div>
-              <!-- <div class="check-card-cancel">CANCEL</div> -->
-          </div>
-      </li>
-  </ul>
-  
-  <ul id="categoryCard8" class="check-card" style="display: inline-block">
+      <ul id="categoryCard7" class="check-card" style="display: inline-block">
+        <li class="check-card-item">
+            <input type="checkbox" id="check07" name="check" value="1">
+            <label for="check07" class="radio"></label>
+            <div class="check-card-bg"></div>
+            <div id="cardBody7" style="color:blue;" class="check-card-body" >
+                <div class="check-card-toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="check-card-body-in">
+                    <img id="categoryImage7" class="categoryImage" src="../meat.svg">
+                    <p class="noselect check-card-description" style="text-align: center;">
+                       البهارات
+                    </p>
+                </div>
+                <!-- <div class="check-card-cancel">CANCEL</div> -->
+            </div>
+        </li>
+    </ul>
+   <ul id="categoryCard8" class="check-card" style="display: inline-block">
       <li class="check-card-item">
           <input type="checkbox" id="check08" name="check" value="1">
           <label for="check08" class="radio"></label>
@@ -417,17 +416,37 @@
                   <span></span>
               </div>
               <div class="check-card-body-in">
-                  <img id="categoryImage8" class="categoryImage" src="plastics.svg">
-                  <p class="check-card-description" style="text-align: center;">
-                     مسلتزمات بلاستيكية
+                  <img id="categoryImage8" class="categoryImage" src="../plastics.svg">
+                  <p class="noselect check-card-description" style="text-align: center;">
+                     المأكولات المبردة
                   </p>
               </div>
               <!-- <div class="check-card-cancel">CANCEL</div> -->
           </div>
       </li>
    </ul>
+   <ul id="categoryCard9" class="check-card" style="display: inline-block">
+    <li class="check-card-item">
+        <input type="checkbox" id="check09" name="check" value="1">
+        <label for="check09" class="radio"></label>
+        <div class="check-card-bg"></div>
+        <div id="cardBody9" style="color:blue;" class="check-card-body" >
+            <div class="check-card-toggle">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="check-card-body-in">
+                <img id="categoryImage9" class="categoryImage" src="../coffee.svg">
+                <p class="noselect check-card-description" style="text-align: center;">
+                   المشروبات
+                </p>
+            </div>
+            <!-- <div class="check-card-cancel">CANCEL</div> -->
+          </div>
+      </li>
+  </ul>
   </div>
-  </div>
+  </div> 
   <!-- End Catrgories -->
 
   <!-- /////////////////////////////// START SUPPLIER PROFILES /////////////////////////////-->
