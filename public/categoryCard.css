@@ -100,8 +100,9 @@ img.categoryImage {
 }
 .check-card-description
 {
-	display: inline-block;
-	margin-top: 5px;
+	display: flex;
+	justify-content: center;
+	margin-top: 8px;
 	font-size: 14px;
 	font-weight: 700 !important;
 	margin-left: auto;
@@ -350,7 +351,7 @@ img.categoryImage {
 		cursor: pointer;
 	}
 	.check-card .check-card-body {
-		height: 130px;
+		height: 135px;
 		z-index: 10;
 		position: relative;
 		display: flex;
