@@ -2,7 +2,7 @@
 // console.log("inside getSupplierProfiles.js file")
 
 // //////////////////////// START DATA FETCHING ///////////////////////////
-//           const loader = document.querySelector(".loadingAnimation");
+          const loader = document.querySelector(".loadingAnimation");
 //           loader.classList.remove("hidden");
 
 //     var suppliers = db.collection("suppliers").doc("Supplier Profiles");
@@ -21,7 +21,7 @@
 
 //             newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
 //           }
-//           loader.classList.add("hidden");
+          loader.classList.add("hidden");
 //         } else {
 //             // doc.data() will be undefined in this case
 //             loader.classList.add("hidden");
