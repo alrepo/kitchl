@@ -344,13 +344,13 @@ img.categoryImage {
 	.check-card li label {
 		display: block;
 		position: absolute;
-		height: 130px;
+		height: 120px;
 		width: 100%;
 		z-index: 100;
 		cursor: pointer;
 	}
 	.check-card .check-card-body {
-		height: 120px;
+		height: 130px;
 		z-index: 10;
 		position: relative;
 		display: flex;
