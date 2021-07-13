@@ -19,9 +19,9 @@ admin.initializeApp({
 //     res.sendFile(__dirname+"/index.html");
 // });
 app.set('view engine', 'ejs');
-// app.use('/supplierProfile', express.static('public'))
-// // app.use(express.static('authorised'))
-// app.use('/authorised/supplierProfile', express.static('public'))
+app.use('/supplierProfile', express.static('public'))
+// app.use(express.static('authorised'))
+app.use('/authorised/supplierProfile', express.static('public'))
 app.use(express.static('public'));
 
 app.get('/', function(req,res){
