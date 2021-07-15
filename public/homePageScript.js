@@ -1,5 +1,6 @@
-
 let selectedProvinceSuppliers = [];
+var tempProfilesArray = Object.assign({}, fullArrayObject);
+console.log(Object.keys(tempProfilesArray).length);
 
 document.getElementById("easternCities").classList.remove("d-none")
 document.getElementById("easternCities").disabled = true;
@@ -18,7 +19,18 @@ document.getElementById("jazanCities").addEventListener("change", cityFilter);
 
 function provinceFilter()
 {
+  tempProfilesArray = Object.assign({}, fullArrayObject);
+  state.allProfiles_JSONArray = tempProfilesArray;
+  state.page = 1;
+  // console.log(Object.keys(fullArrayObject).length);
+  console.log(Object.keys(tempProfilesArray).length);
+
+  updateProfilesArray(tempProfilesArray);
+
   console.log("inside homePageScript.js!")
+
+  // state.allProfiles_JSONArray = fullArrayObject;
+
   var selectedProvince = document.querySelector(".form-select-province")
   var value = selectedProvince.options[selectedProvince.selectedIndex].value;// get selected option value
   var text = selectedProvince.options[selectedProvince.selectedIndex].text;
@@ -48,6 +60,15 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "المنطقة الشرقية")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
 
     document.querySelectorAll(".eastern").forEach(showElement);
     document.querySelectorAll(".eastern").forEach(appendToSelectedSuppliers);
@@ -82,12 +103,13 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
+
     }
   else if(text == "حائل")
   {
     selectedProvinceSuppliers = [];
+    // state.allProfiles_JSONArray = fullArrayObject;
 
     document.getElementById("easternCities").selectedIndex = 0;
     document.getElementById("makkahCities").selectedIndex = 0;
@@ -109,6 +131,15 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "حائل")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
 
     document.querySelectorAll(".hael").forEach(showElement);
     document.querySelectorAll(".hael").forEach(appendToSelectedSuppliers);
@@ -143,8 +174,7 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
     }
   else if(text == "مكة المكرمة")
   {
@@ -170,6 +200,16 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "مكة المكرمة")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
 
     document.querySelectorAll(".makkah").forEach(showElement);
     document.querySelectorAll(".makkah").forEach(appendToSelectedSuppliers);
@@ -204,7 +244,7 @@ function provinceFilter()
         {
           selectedProvinceSuppliers.push(elem);
         }
-    console.log(text);
+    
     console.log(selectedProvinceSuppliers);
   }
   else if(text == "عسير")
@@ -231,6 +271,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "عسير")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".aseer").forEach(showElement);
 
@@ -266,8 +317,8 @@ function provinceFilter()
         {
           selectedProvinceSuppliers.push(elem);
         }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
+
   }
   else if(text == "الرياض")
   {
@@ -293,6 +344,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "الرياض")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".riyadh").forEach(showElement);
     document.querySelectorAll(".riyadh").forEach(appendToSelectedSuppliers);
@@ -327,7 +389,6 @@ function provinceFilter()
         {
           selectedProvinceSuppliers.push(elem);
         }
-        console.log(selectedProvinceSuppliers);
   }
   else if(text == "المدينة المنورة")
   {
@@ -353,6 +414,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "المدينة المنورة")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".madinah").forEach(showElement);
     document.querySelectorAll(".madinah").forEach(appendToSelectedSuppliers);
@@ -413,6 +485,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "القصيم")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".qassim").forEach(showElement);
     document.querySelectorAll(".qassim").forEach(appendToSelectedSuppliers);
@@ -473,6 +556,17 @@ function provinceFilter()
     document.getElementById("haelCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "تبوك")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".tabouk").forEach(showElement);
     document.querySelectorAll(".tabouk").forEach(appendToSelectedSuppliers);
@@ -507,8 +601,8 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
+
     }
   else if(text == "نجران")
   {
@@ -534,6 +628,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("haelCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "نجران")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".najran").forEach(showElement);
     document.querySelectorAll(".najran").forEach(appendToSelectedSuppliers);
@@ -569,8 +674,8 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
+
     }
   else if(text == "جازان")
   {
@@ -596,6 +701,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("haelCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
+    for(key in tempProfilesArray)
+    {
+      if (tempProfilesArray[key]["supplierProvince"] != "جازان")
+      {
+        delete tempProfilesArray[key];
+      }
+    }
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".jazan").forEach(showElement);
     document.querySelectorAll(".jazan").forEach(appendToSelectedSuppliers);
@@ -631,10 +747,14 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
+
     }
   else{
+    // state.allProfiles_JSONArray = fullArrayObject;
+    console.log(fullArrayObject);
+    console.log(state.allProfiles_JSONArray);
+
     document.getElementById("easternCities").selectedIndex = 0;
     document.getElementById("haelCities").selectedIndex = 0;
     document.getElementById("makkahCities").selectedIndex = 0;
@@ -657,7 +777,12 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    
+    tempProfilesArray = Object.assign({}, fullArrayObject);
+    state.allProfiles_JSONArray = tempProfilesArray;
+    updateProfilesArray(tempProfilesArray);
 
+    
     document.querySelectorAll(".eastern").forEach(showElement);
 
     document.querySelectorAll(".makkah").forEach(showElement);
