@@ -168,6 +168,35 @@ body
 {
   font-family: 'Tajawal', sans-serif;
 }
+#pagination-wrapper
+{
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.paginationButtons {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #fff;
+  color: #1502be;
+  font-size: 20px;
+  border-width: 0;
+  padding: 0;
+  margin-right: 2px;
+}
+.paginationButtons:active {
+  background-color: #1502be;
+  color: #fff;
+  transform: scale(1.5,1.5);
+  transition: all 0.8 ease-out;
+}
 
 @media (max-width: 767.98px)
 {
@@ -222,39 +251,6 @@ body
     padding-bottom: 10px;
   }
 }
-
-/*//////////////// START CATEGORIES CAROUSEL  STYLES /////////////////*/
-
-.slick-track
-{
- display: flex;
- align-content: center;
- height: 100px !important; 
- width: 100%;
- margin-left: 0;
- margin-right: 0;
-}
-
-/* .slick-next, .slick-prev {
-  height: 30px !important;
-  width: 30px !important;
-} */
-.slick-slide img{
-  width:100%;
-  border: 2px solid #fff;
-}
-.slick-next:before, .slick-prev:before, .slick-dots li.slick-active button:before 
-{
-  color: rgb(48, 15, 197) !important;
-}
-.carouselWrapper .slick-dots li button:before {
-  font-size:20px;
-  color:rgb(20, 3, 173);
-}
- 
-/*//////////////// END  OF CATEGORIES CAROUSEL STYLES ////////////////*/
-
-
 
 /* /////////////// START MOBILE PHONE STYLES ////////////// */
 @media (min-width: 576.1px) 
