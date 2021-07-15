@@ -4,7 +4,7 @@ var state =
           {
             'allProfiles_JSONArray' : "",
             'page' : 1,
-            'profilesPerPage' : 2
+            'profilesPerPage' : 5
           }
 var trimmedProfiles = {};
 let newData = {};
