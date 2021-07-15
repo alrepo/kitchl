@@ -1,29 +1,66 @@
 
 console.log("inside getSupplierProfiles.js file")
+var state = 
+          {
+            'allProfiles_JSONArray' : "",
+            'page' : 1,
+            'profilesPerPage' : 2
+          }
+var trimmedProfiles = {};
+let newData = {};
+var tempAllProfiles = {};
 
+// function cloneFullProfilesArray(obj) {
+//   if (null == obj || "object" != typeof obj) return obj;
+//   var copy = obj.constructor();
+//   for (var attr in obj) {
+//       if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+//   }
+//   return copy;
+// }
+var fullArrayObject = {};
 //////////////////////// START DATA FETCHING ///////////////////////////
-          const loader = document.querySelector(".loadingAnimation");
-          loader.classList.remove("hidden");
+    const loader = document.querySelector(".loadingAnimation");
+    loader.classList.remove("hidden");
 
     var suppliers = db.collection("suppliers").doc("Supplier Profiles");
 
     suppliers.get().then((doc) => {
         if (doc.exists) {
-          var data = doc.data()
-          for (var key in data)
-          {
-            let name = data[key]["supplierName"]
-            let supplierProfileImage = data[key]["supplierProfileImage"];
-            let supplierID = data[key]["supplierID"]
-            let province = data[key]["supplierProvince"]
-            let city = data[key]["supplierCity"]
-            let services = data[key]["services"]
+          var data = doc.data();
+          // state.allProfiles_JSONArray = data;
+          state.allProfiles_JSONArray = Object.assign({}, data);
+          fullArrayObject = Object.assign({}, data);
+          
+          // let numberOfProfiles = Object.keys(data).length;
+          // let slicedData = Object.values(data).slice(0,2);
+          // console.log(slicedData);
+          // let numberOfPages = Math.floor(numberOfProfiles/5);
+          // let remainder = numberOfProfiles % 5 ;
+          
+          // if (remainder > 0)
+          // {
+          //   numberOfPages = numberOfPages +1;
+          // }
 
-            newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
+          // console.log(numberOfPages);
+          trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage);
+          newData = trimmedProfiles.dataSet;
+          for (var i = 1 in newData)
+          {
+            let name = newData[i]["supplierName"]
+            let supplierProfileImage = newData[i]["supplierProfileImage"];
+            let supplierID = newData[i]["supplierID"]
+            let province = newData[i]["supplierProvince"]
+            let city = newData[i]["supplierCity"]
+            let products = newData[i]["products"]
+ 
+            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products)
           }
+          pageButtons(trimmedProfiles.pages);
           loader.classList.add("hidden");
         } else {
-            // doc.data() will be undefined in this case
+            // doc.newData() will be undefined in this case
             loader.classList.add("hidden");
             console.log("No such document!");
         }
@@ -32,9 +69,92 @@ console.log("inside getSupplierProfiles.js file")
     });
 //////////////////////// EDN OF DATA FETCHING ///////////////////////////
 
-/////////////////// START OF Supplier CARDS POPULATING ///////////////////
+//////////////////// Start Pagination Code //////////////////////////////
+function pagination(allProfiles_JSONArray,page,profilesPerPage)
+{
+  var trimStart = (page-1)*profilesPerPage;
+  var trimEnd = trimStart + profilesPerPage;
 
-function newSupplierCard(name,supplierProfileImage,province,city,supplierID,services)
+  var trimmedProfiles = Object.values(allProfiles_JSONArray).slice(trimStart,trimEnd);
+  
+  var pages = Math.ceil(Object.values(allProfiles_JSONArray).length/profilesPerPage);
+
+  return{
+    "dataSet": trimmedProfiles,
+    "pages": pages
+  }
+
+}
+function pageButtons(pages) 
+{
+  var wrapper = document.getElementById('pagination-wrapper')
+
+  wrapper.innerHTML = ``
+  
+  for (var page = 1; page <= pages; page++) 
+  {
+    wrapper.innerHTML += `<button value=${page} onclick="updatePage(this)" class="page paginationButtons">${page}</button>`
+  }
+}
+function updatePage(e)
+  {
+    document.getElementById("supplierProfileCardsContainer").innerHTML = "<div id='startAppendingFromHere'></div>";
+    state.page = e.value;
+    console.log(state.page);
+    if (tempProfilesArray !=null)
+    {
+      trimmedProfiles = pagination(tempProfilesArray,state.page,state.profilesPerPage); 
+    }
+    else
+    {
+      trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage); 
+    }
+    trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage); 
+          console.log(trimmedProfiles);
+          newData = trimmedProfiles.dataSet;
+          for (var i = 1 in newData)
+          {
+            let name = newData[i]["supplierName"]
+            let supplierProfileImage = newData[i]["supplierProfileImage"];
+            let supplierID = newData[i]["supplierID"]
+            let province = newData[i]["supplierProvince"]
+            let city = newData[i]["supplierCity"]
+            let products = newData[i]["products"]
+  
+            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products);
+          }
+          pageButtons(trimmedProfiles.pages);
+  }
+function updateProfilesArray(filteredArray)
+    {
+      console.log("inside function");
+      console.log(filteredArray);
+          document.getElementById("supplierProfileCardsContainer").innerHTML = "<div id='startAppendingFromHere'></div>";
+          trimmedProfiles = pagination(filteredArray,state.page,state.profilesPerPage); 
+          newData = trimmedProfiles.dataSet;
+          console.log(newData);
+          for (var i = 1 in newData)
+          {
+            let name = newData[i]["supplierName"]
+            let supplierProfileImage = newData[i]["supplierProfileImage"];
+            let supplierID = newData[i]["supplierID"]
+            let province = newData[i]["supplierProvince"]
+            let city = newData[i]["supplierCity"]
+            let products = newData[i]["products"]
+            console.log(name);
+            console.log(province);
+
+            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products);
+          }
+          console.log(trimmedProfiles.pages);
+          pageButtons(trimmedProfiles.pages);
+
+    }
+
+//////////////////// End Pagination Code //////////////////////////////
+
+/////////////////// START OF Supplier CARDS POPULATING //////////////////
+function newSupplierCard(name,supplierProfileImage,province,city,supplierID,products)
 {
   var provinceName = "";
   let div1 = document.createElement("div");
@@ -135,10 +255,10 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
   div3.appendChild(div5)
   div2.appendChild(div4)
   let lengthofDictionary = 0;
-  if ( services != null)
+  if ( products != null)
   {
-    lengthofDictionary = Object.keys(services).length;
-    console.log("Number of services is: "+lengthofDictionary);
+    lengthofDictionary = Object.keys(products).length;
+    console.log("Number of products is: "+lengthofDictionary);
   }
   function insertAfter(referenceNode, newNode)
   {
@@ -152,7 +272,7 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
     let supplier_id = this.id;
     let supplier_name = document.getElementById(supplierID+"name").innerText
     // let supplier_image_src = document.getElementById(supplierID+"image").src
-    let stringifiedSupplierServices = JSON.stringify(services);
+    let stringifiedSupplierServices = JSON.stringify(products);
     let isEmpty = "true";
 
     if (lengthofDictionary>0)
@@ -172,4 +292,4 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,serv
     window.location.assign("supplierProfile\\"+supplier_id);
   });
 }
-// /////////////////// END OF Supplier CARDS POPULATING ////////////////////
+/////////////////// END OF Supplier CARDS POPULATING ////////////////////
