@@ -31,7 +31,7 @@ var fullArrayObject = {};
           // state.allProfiles_JSONArray = data;
           state.allProfiles_JSONArray = Object.assign({}, data);
           fullArrayObject = Object.assign({}, data);
-          
+
           // let numberOfProfiles = Object.keys(data).length;
           // let slicedData = Object.values(data).slice(0,2);
           // console.log(slicedData);
@@ -93,14 +93,18 @@ function pageButtons(pages)
   
   for (var page = 1; page <= pages; page++) 
   {
-    wrapper.innerHTML += `<button value=${page} onclick="updatePage(this)" class="page paginationButtons">${page}</button>`
+    wrapper.innerHTML += `<button id='pageNumber${page}' value=${page} onclick="updatePage(this)" class="page paginationButtons">${page}</button>`
   }
+  document.getElementById("pageNumber"+state.page).classList.add('paginationButtonsClicked');
 }
 function updatePage(e)
   {
+    // document.querySelector(".paginationButtonsClicked").forEach(element => {
+    //   this.classList.remove('paginationButtonsClicked');
+    // });
+ 
     document.getElementById("supplierProfileCardsContainer").innerHTML = "<div id='startAppendingFromHere'></div>";
     state.page = e.value;
-    console.log(state.page);
     if (tempProfilesArray !=null)
     {
       trimmedProfiles = pagination(tempProfilesArray,state.page,state.profilesPerPage); 
@@ -123,7 +127,7 @@ function updatePage(e)
   
             newSupplierCard(name,supplierProfileImage,province,city,supplierID,products);
           }
-          pageButtons(trimmedProfiles.pages);
+        pageButtons(trimmedProfiles.pages);
   }
 function updateProfilesArray(filteredArray)
     {
@@ -291,5 +295,6 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
     localStorage.setItem("isEmpty", isEmpty);
     window.location.assign("supplierProfile\\"+supplier_id);
   });
+  
 }
 /////////////////// END OF Supplier CARDS POPULATING ////////////////////
