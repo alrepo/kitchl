@@ -1,15 +1,17 @@
 
-console.log("inside getSupplierProfiles.js file")
+console.log("inside public getSupplierProfiles.js file")
+
 var state = 
           {
-            'allProfiles_JSONArray' : "",
+            'allProfiles_JSONArray' : {},
             'page' : 1,
-            'profilesPerPage' : 5
+            'profilesPerPage' : 2
           }
+          
 var trimmedProfiles = {};
-let newData = {};
+let arrayForCurrentPage = {};
 var tempAllProfiles = {};
-
+var filteredProfilesArray = {};
 // function cloneFullProfilesArray(obj) {
 //   if (null == obj || "object" != typeof obj) return obj;
 //   var copy = obj.constructor();
@@ -31,7 +33,9 @@ var fullArrayObject = {};
           // state.allProfiles_JSONArray = data;
           state.allProfiles_JSONArray = Object.assign({}, data);
           fullArrayObject = Object.assign({}, data);
-
+          updatedProfilesCategoriesArray = (Object.assign({}, fullArrayObject));
+          filteredProfilesArray = Object.assign({}, data);
+          updatedProfilesLocationsArray = Object.assign({}, data);
           // let numberOfProfiles = Object.keys(data).length;
           // let slicedData = Object.values(data).slice(0,2);
           // console.log(slicedData);
@@ -45,22 +49,23 @@ var fullArrayObject = {};
 
           // console.log(numberOfPages);
           trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage);
-          newData = trimmedProfiles.dataSet;
-          for (var i = 1 in newData)
+          arrayForCurrentPage = trimmedProfiles.dataSet;
+          for (var i = 0 in arrayForCurrentPage)
           {
-            let name = newData[i]["supplierName"]
-            let supplierProfileImage = newData[i]["supplierProfileImage"];
-            let supplierID = newData[i]["supplierID"]
-            let province = newData[i]["supplierProvince"]
-            let city = newData[i]["supplierCity"]
-            let products = newData[i]["products"]
- 
-            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products)
+            let name = arrayForCurrentPage[i]["supplierName"]
+            let supplierProfileImage = arrayForCurrentPage[i]["supplierProfileImage"];
+            let supplierID = arrayForCurrentPage[i]["supplierID"]
+            let province = arrayForCurrentPage[i]["supplierProvince"]
+            let city = arrayForCurrentPage[i]["supplierCity"]
+            let products = arrayForCurrentPage[i]["products"]
+            let categories = arrayForCurrentPage[i]["supplierCategory"]
+           
+            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products,categories)
           }
           pageButtons(trimmedProfiles.pages);
           loader.classList.add("hidden");
         } else {
-            // doc.newData() will be undefined in this case
+            // doc.arrayForCurrentPage() will be undefined in this case
             loader.classList.add("hidden");
             console.log("No such document!");
         }
@@ -70,14 +75,14 @@ var fullArrayObject = {};
 //////////////////////// EDN OF DATA FETCHING ///////////////////////////
 
 //////////////////// Start Pagination Code //////////////////////////////
-function pagination(allProfiles_JSONArray,page,profilesPerPage)
+function pagination(profilesArray,page,profilesPerPage)
 {
   var trimStart = (page-1)*profilesPerPage;
   var trimEnd = trimStart + profilesPerPage;
 
-  var trimmedProfiles = Object.values(allProfiles_JSONArray).slice(trimStart,trimEnd);
+  var trimmedProfiles = Object.values(profilesArray).slice(trimStart,trimEnd);
   
-  var pages = Math.ceil(Object.values(allProfiles_JSONArray).length/profilesPerPage);
+  var pages = Math.ceil(Object.values(profilesArray).length/profilesPerPage);
 
   return{
     "dataSet": trimmedProfiles,
@@ -87,15 +92,20 @@ function pagination(allProfiles_JSONArray,page,profilesPerPage)
 }
 function pageButtons(pages) 
 {
+  if (pages == 0)
+  {
+    pages = 1;
+  }
   var wrapper = document.getElementById('pagination-wrapper')
 
-  wrapper.innerHTML = ``
+  wrapper.innerHTML = ``;
   
   for (var page = 1; page <= pages; page++) 
   {
     wrapper.innerHTML += `<button id='pageNumber${page}' value=${page} onclick="updatePage(this)" class="page paginationButtons">${page}</button>`
   }
-  document.getElementById("pageNumber"+state.page).classList.add('paginationButtonsClicked');
+
+  document.getElementById("pageNumber"+state.page).classList.add('paginationButtonsClicked');//to highlight clicked button with blue color
 }
 function updatePage(e)
   {
@@ -105,61 +115,99 @@ function updatePage(e)
  
     document.getElementById("supplierProfileCardsContainer").innerHTML = "<div id='startAppendingFromHere'></div>";
     state.page = e.value;
-    if (tempProfilesArray !=null)
+    console.log("JSON_array:");
+    console.log(Object.keys(state.allProfiles_JSONArray).length);
+    console.log("page number: "+state.page);
+    if (state.allProfiles_JSONArray !=null)
     {
-      trimmedProfiles = pagination(tempProfilesArray,state.page,state.profilesPerPage); 
+      trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage); 
     }
     else
     {
       trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage); 
     }
     trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage); 
-          console.log(trimmedProfiles);
-          newData = trimmedProfiles.dataSet;
-          for (var i = 1 in newData)
+          arrayForCurrentPage = trimmedProfiles.dataSet;
+          for (var i = 0 in arrayForCurrentPage)
           {
-            let name = newData[i]["supplierName"]
-            let supplierProfileImage = newData[i]["supplierProfileImage"];
-            let supplierID = newData[i]["supplierID"]
-            let province = newData[i]["supplierProvince"]
-            let city = newData[i]["supplierCity"]
-            let products = newData[i]["products"]
-  
-            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products);
+            let name = arrayForCurrentPage[i]["supplierName"]
+            let supplierProfileImage = arrayForCurrentPage[i]["supplierProfileImage"];
+            let supplierID = arrayForCurrentPage[i]["supplierID"]
+            let province = arrayForCurrentPage[i]["supplierProvince"]
+            let city = arrayForCurrentPage[i]["supplierCity"]
+            let products = arrayForCurrentPage[i]["products"]
+            let categories = arrayForCurrentPage[i]["supplierCategory"]
+
+            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products,categories);
           }
+          // tempLocationProfilesArray = Object.assign({}, fullArrayObject);
+          console.log("number of pages");
+          console.log(trimmedProfiles.pages);
         pageButtons(trimmedProfiles.pages);
   }
-function updateProfilesArray(filteredArray)
+  function updateProfilesArray()
     {
-      console.log("inside function");
-      console.log(filteredArray);
-          document.getElementById("supplierProfileCardsContainer").innerHTML = "<div id='startAppendingFromHere'></div>";
-          trimmedProfiles = pagination(filteredArray,state.page,state.profilesPerPage); 
-          newData = trimmedProfiles.dataSet;
-          console.log(newData);
-          for (var i = 1 in newData)
-          {
-            let name = newData[i]["supplierName"]
-            let supplierProfileImage = newData[i]["supplierProfileImage"];
-            let supplierID = newData[i]["supplierID"]
-            let province = newData[i]["supplierProvince"]
-            let city = newData[i]["supplierCity"]
-            let products = newData[i]["products"]
-            console.log(name);
-            console.log(province);
+      state.page = 1;
+      // console.log("'''''''''''''''''******* updatedProfilesCategoriesArray Values ******* '''''''''''''''''''");
+      // console.log(updatedProfilesCategoriesArray);
+      // console.log("'''''''''''''''''******* updatedProfilesLocationsArray Values *******'''''''''''''''''''");
+      // console.log(updatedProfilesLocationsArray);      // console.log("updateProfilesArray: ");
+      // console.log(state.allProfiles_JSONArray);
+      // console.log(state.allProfiles_JSONArray);
+      filteredProfilesArray = {};
 
-            newSupplierCard(name,supplierProfileImage,province,city,supplierID,products);
+      console.log(" LENGTH of Locations");
+      console.log(Object.keys(updatedProfilesLocationsArray).length);
+      if (Object.keys(updatedProfilesLocationsArray).length > 0 && Object.keys(updatedProfilesLocationsArray).length > 0)
+      {
+        for (key in updatedProfilesLocationsArray)
+        {
+          for (key in updatedProfilesCategoriesArray)
+          {
+            if (updatedProfilesLocationsArray[key] == updatedProfilesCategoriesArray[key] )
+                {
+                  filteredProfilesArray[key] = updatedProfilesCategoriesArray[key];
+                }
           }
-          console.log(trimmedProfiles.pages);
-          pageButtons(trimmedProfiles.pages);
+        }
+      }
+      console.log(filteredProfilesArray);
+      state.allProfiles_JSONArray = filteredProfilesArray;
+      document.getElementById("supplierProfileCardsContainer").innerHTML = "<div id='startAppendingFromHere'></div>";
+      trimmedProfiles = pagination(state.allProfiles_JSONArray,state.page,state.profilesPerPage);
+      console.log("trimmedProfiles: ");
+      console.log(trimmedProfiles);
+      arrayForCurrentPage = trimmedProfiles.dataSet;
+      console.log("NewData");
+      console.log(arrayForCurrentPage);
+      for (var i = 0 in arrayForCurrentPage)
+      {
+        let name = arrayForCurrentPage[i]["supplierName"]
+        let supplierProfileImage = arrayForCurrentPage[i]["supplierProfileImage"];
+        let supplierID = arrayForCurrentPage[i]["supplierID"]
+        let province = arrayForCurrentPage[i]["supplierProvince"]
+        let city = arrayForCurrentPage[i]["supplierCity"]
+        let products = arrayForCurrentPage[i]["products"]
+        let categories = arrayForCurrentPage[i]["supplierCategory"]
+
+        newSupplierCard(name,supplierProfileImage,province,city,supplierID,products,categories);
+      }
+      console.log("leeeength is:"+Object.keys(state.allProfiles_JSONArray).length);
+      if (Object.keys(state.allProfiles_JSONArray).length == 0)
+      {
+        pageButtons(1);
+      }
+      else{
+        pageButtons(trimmedProfiles.pages);
+      }
 
     }
-
 //////////////////// End Pagination Code //////////////////////////////
 
 /////////////////// START OF Supplier CARDS POPULATING //////////////////
-function newSupplierCard(name,supplierProfileImage,province,city,supplierID,products)
+function newSupplierCard(name,supplierProfileImage,province,city,supplierID,products,categories)
 {
+    
   var provinceName = "";
   let div1 = document.createElement("div");
   let div2 = document.createElement("div");
@@ -211,7 +259,12 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
     provinceName = "";
       }
 
-  div1.className = "ml-1 mr-1 supplier "+provinceName+" "+(city.replace(/\s/g, ''))
+  let categoriesClasses = ""
+  for(var i=0; i<categories.length;i++)
+  {
+    categoriesClasses= categoriesClasses+" "+categories[i];
+  }
+  div1.className = "ml-1 mr-1 supplier "+provinceName+" "+(city.replace(/\s/g, ''))+" "+categoriesClasses
   div2.className = "card mb-2 btn book"
   div2.id = supplierID;
   div2.style.borderRadius = "15px";
@@ -259,11 +312,11 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
   div3.appendChild(div5)
   div2.appendChild(div4)
   let lengthofDictionary = 0;
-  if ( products != null)
-  {
-    lengthofDictionary = Object.keys(products).length;
-    console.log("Number of products is: "+lengthofDictionary);
-  }
+  // if ( products != null)
+  // {
+  //   lengthofDictionary = Object.keys(products).length;
+  //   console.log("Number of products is: "+lengthofDictionary);
+  // }
   function insertAfter(referenceNode, newNode)
   {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -272,7 +325,55 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
   var appendingElement = document.getElementById("startAppendingFromHere")
   insertAfter(appendingElement,div1)
 
-  document.querySelector(".book").addEventListener("click", function(){
+  // function resetAllSelectionsAndArrays()
+  // {
+  //   document.querySelector(".form-select-province").selectedIndex = 0; // This is in order to reset filtering values when you return back to the index/home page back from a profile page
+  //   document.querySelector(".form-select-city").selectedIndex = 0; // This is in order to reset filtering values when you return back to the index/home page back from a profile page
+
+  //   updatedProfilesCategoriesArray = (Object.assign({}, fullArrayObject));
+  //   filteredProfilesArray = Object.assign({}, fullArrayObject);
+  //   updatedProfilesLocationsArray = Object.assign({}, fullArrayObject);
+    
+  //    counter1 = 1;
+  //    counter2 = 1;
+  //    counter3 = 1;
+  //    counter4 = 1;
+  //    counter5 = 1;
+  //    counter6 = 1;
+  //    counter7 = 1;
+  //    counter8 = 1;
+  //    counter9 = 1;
+  //    counter10 = 1;
+
+  //   allCategoriesSelected = true;
+  //   meatSelected = false;
+  //   coffeeTeaSelected = false;
+  //   plasticsSelected = false;
+  //   fruitSelected = false;
+  //   bakedSelected = false;
+  //   spicesSelected = false;
+  //   frozenSelected = false;
+  //   drinksSelected = false;
+
+  //   document.getElementById("check01").checked = false;
+  //   document.getElementById("cardBody1").style.color = "white";
+  //   document.getElementById("check01").disabled = true;
+  //   document.getElementById("categoryImage1").style.filter = "grayscale(0)"
+
+  //   highlightCategoryAndFilterCards1();
+  //   highlightCategoryAndFilterCards2();
+  //   highlightCategoryAndFilterCards3();
+  //   highlightCategoryAndFilterCards4();
+  //   highlightCategoryAndFilterCards5();
+  //   highlightCategoryAndFilterCards6();
+  //   highlightCategoryAndFilterCards7();
+  //   highlightCategoryAndFilterCards8();
+  //   highlightCategoryAndFilterCards9();
+
+  // }
+
+  document.querySelector(".book").addEventListener("click", function()
+  {
     let supplier_id = this.id;
     let supplier_name = document.getElementById(supplierID+"name").innerText
     // let supplier_image_src = document.getElementById(supplierID+"image").src
@@ -294,6 +395,10 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
     localStorage.setItem("supplierServices", stringifiedSupplierServices)
     localStorage.setItem("isEmpty", isEmpty);
     window.location.assign("supplierProfile\\"+supplier_id);
+
+    document.querySelector(".form-select-province").selectedIndex = 0; // This is in order to reset filtering values when you return back to the index/home page back from a profile page
+    document.querySelector(".form-select-city").selectedIndex = 0; // This is in order to reset filtering values when you return back to the index/home page back from a profile page
+
   });
   
 }
