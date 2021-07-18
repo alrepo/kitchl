@@ -5,7 +5,7 @@ var state =
           {
             'allProfiles_JSONArray' : {},
             'page' : 1,
-            'profilesPerPage' : 2
+            'profilesPerPage' : 4
           }
           
 var trimmedProfiles = {};
@@ -389,10 +389,10 @@ function newSupplierCard(name,supplierProfileImage,province,city,supplierID,prod
        isEmpty = "true";
     }
 
-    // localStorage.setItem("supplierID", supplier_id )
-    localStorage.setItem("supplierName", supplier_name)
-    // localStorage.setItem("supplierImageSrc", supplier_image_src)
-    localStorage.setItem("supplierServices", stringifiedSupplierServices)
+    // // localStorage.setItem("supplierID", supplier_id )
+    // localStorage.setItem("supplierName", supplier_name)
+    // // localStorage.setItem("supplierImageSrc", supplier_image_src)
+    // localStorage.setItem("supplierServices", stringifiedSupplierServices)
     localStorage.setItem("isEmpty", isEmpty);
     window.location.assign("supplierProfile\\"+supplier_id);
 
