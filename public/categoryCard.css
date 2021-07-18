@@ -137,7 +137,7 @@ img.categoryImage {
 	transform:scale(1);
 	z-index: 0;
 }
-#categoryCard1.check-card .check-card-bg{
+#allCategories.check-card .check-card-bg{
 	position: absolute;
 	background: #1502be;
 	color : white;
@@ -147,7 +147,7 @@ img.categoryImage {
 	transform:scale(25);
 	z-index: 0;
 }
-/* #categoryCard1 {
+/* #allCategories {
 	position: absolute;
 	background: #04ffab;
 	color : white;
@@ -171,7 +171,7 @@ img.categoryImage {
 	-webkit-transform: rotate(-270deg);
 	transform: rotate(-270deg);
 }
-#categoryCard1.check-card .check-card-toggle span 
+#allCategories.check-card .check-card-toggle span 
 {
 	position: absolute;
 	display: block;
@@ -190,7 +190,7 @@ img.categoryImage {
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
-#categoryCard1.check-card .check-card-toggle span:first-child {
+#allCategories.check-card .check-card-toggle span:first-child {
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
@@ -210,19 +210,19 @@ img.categoryImage {
 .check-card input[type=checkbox] {
 	display: none;
 }
-#categoryCard1.check-card input[type=checkbox] ~ .check-card-body .check-card-toggle span {
+#allCategories.check-card input[type=checkbox] ~ .check-card-body .check-card-toggle span {
 	-webkit-transform: rotate(0deg);
 	transform: rotate(0deg);
 }
-#categoryCard1.check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span {
+#allCategories.check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span {
 	-webkit-transform: rotate(-270deg);
 	transform: rotate(-270deg);
 }
-#categoryCard1.check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span:first-child {
+#allCategories.check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span:first-child {
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
-#categoryCard1.check-card input[type=checkbox]:checked ~ .check-card-bg{
+#allCategories.check-card input[type=checkbox]:checked ~ .check-card-bg{
 	-webkit-transform:scale(1);
 	transform:scale(1);
 }
