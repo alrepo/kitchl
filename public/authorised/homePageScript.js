@@ -1,10 +1,14 @@
-
 let selectedProvinceSuppliers = [];
+var updatedProfilesLocationsArray = Object.assign({}, fullArrayObject);
+var updatedProfilesCitiesArray = Object.assign({}, fullArrayObject);
 
-// document.getElementById("dashboardButton").addEventListener("click", function(){
-// window.location.assign("../user.html");
-// });
-document.getElementById("easternCities").classList.remove("d-none")
+// var filteredProfilesArray = Object.assign({}, fullArrayObject);
+
+var provinceText = "";
+
+// console.log(Object.keys(filteredProfilesArray).length);
+
+// document.getElementById("easternCities").classList.remove("d-none")
 document.getElementById("easternCities").disabled = true;
 
 document.querySelector(".form-select-province").addEventListener("change", provinceFilter);
@@ -21,13 +25,28 @@ document.getElementById("jazanCities").addEventListener("change", cityFilter);
 
 function provinceFilter()
 {
+  updatedProfilesLocationsArray = {};
+  // state.allProfiles_JSONArray = filteredProfilesArray;
+  state.page = 1;
+  // console.log(Object.keys(fullArrayObject).length);
+
+  // state.allProfiles_JSONArray = filteredProfilesArray;
+
+  // console.log("///////////////////////// Start Initial Values //////////////////////////////");
+  // console.log(Object.keys(filteredProfilesArray).length);
+  // console.log(Object.keys(state.allProfiles_JSONArray).length);
+  // console.log("/////////////////////////// End Initial Values /////////////////////////////");
+    // updateProfilesArray();
+
   console.log("inside homePageScript.js!")
+
+  // state.allProfiles_JSONArray = fullArrayObject;
+
   var selectedProvince = document.querySelector(".form-select-province")
   var value = selectedProvince.options[selectedProvince.selectedIndex].value;// get selected option value
-  var text = selectedProvince.options[selectedProvince.selectedIndex].text;
-  if(text == "المنطقة الشرقية")
+  provinceText = selectedProvince.options[selectedProvince.selectedIndex].text ;
+  if(provinceText  == "المنطقة الشرقية")
   {
-    console.log("eastern selected")
     selectedProvinceSuppliers = [];
 
     document.getElementById("easternCities").disabled = false;
@@ -51,6 +70,17 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "المنطقة الشرقية")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+
+    // updateProfilesArray();
 
     document.querySelectorAll(".eastern").forEach(showElement);
     document.querySelectorAll(".eastern").forEach(appendToSelectedSuppliers);
@@ -85,12 +115,12 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+
     }
-  else if(text == "حائل")
+  else if(provinceText  == "حائل")
   {
     selectedProvinceSuppliers = [];
+    // state.allProfiles_JSONArray = fullArrayObject;
 
     document.getElementById("easternCities").selectedIndex = 0;
     document.getElementById("makkahCities").selectedIndex = 0;
@@ -112,6 +142,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "حائل")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray();
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // console.log(Object.keys(filteredProfilesArray).length);
+    // console.log(Object.keys(state.allProfiles_JSONArray).length);
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
 
     document.querySelectorAll(".hael").forEach(showElement);
     document.querySelectorAll(".hael").forEach(appendToSelectedSuppliers);
@@ -146,10 +189,9 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
     }
-  else if(text == "مكة المكرمة")
+  else if(provinceText  == "مكة المكرمة")
   {
     selectedProvinceSuppliers = [];
 
@@ -173,6 +215,18 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "مكة المكرمة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
 
     document.querySelectorAll(".makkah").forEach(showElement);
     document.querySelectorAll(".makkah").forEach(appendToSelectedSuppliers);
@@ -207,10 +261,9 @@ function provinceFilter()
         {
           selectedProvinceSuppliers.push(elem);
         }
-    console.log(text);
-    console.log(selectedProvinceSuppliers);
+    
   }
-  else if(text == "عسير")
+  else if(provinceText  == "عسير")
   {
     selectedProvinceSuppliers = [];
 
@@ -234,6 +287,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "عسير")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".aseer").forEach(showElement);
 
@@ -269,10 +335,9 @@ function provinceFilter()
         {
           selectedProvinceSuppliers.push(elem);
         }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+
   }
-  else if(text == "الرياض")
+  else if(provinceText  == "الرياض")
   {
     selectedProvinceSuppliers = [];
 
@@ -296,6 +361,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "الرياض")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".riyadh").forEach(showElement);
     document.querySelectorAll(".riyadh").forEach(appendToSelectedSuppliers);
@@ -330,9 +408,8 @@ function provinceFilter()
         {
           selectedProvinceSuppliers.push(elem);
         }
-        console.log(selectedProvinceSuppliers);
   }
-  else if(text == "المدينة المنورة")
+  else if(provinceText  == "المدينة المنورة")
   {
     selectedProvinceSuppliers = [];
 
@@ -356,6 +433,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "المدينة المنورة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".madinah").forEach(showElement);
     document.querySelectorAll(".madinah").forEach(appendToSelectedSuppliers);
@@ -390,9 +480,9 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-    console.log(selectedProvinceSuppliers)
+    
   }
-  else if(text == "القصيم")
+  else if(provinceText  == "القصيم")
   {
     selectedProvinceSuppliers = [];
 
@@ -416,6 +506,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "القصيم")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".qassim").forEach(showElement);
     document.querySelectorAll(".qassim").forEach(appendToSelectedSuppliers);
@@ -450,9 +553,9 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-    console.log(selectedProvinceSuppliers)
+    
   }
-  else if(text == "تبوك")
+  else if(provinceText  == "تبوك")
   {
     selectedProvinceSuppliers = [];
 
@@ -476,6 +579,19 @@ function provinceFilter()
     document.getElementById("haelCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "تبوك")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".tabouk").forEach(showElement);
     document.querySelectorAll(".tabouk").forEach(appendToSelectedSuppliers);
@@ -510,10 +626,9 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+
     }
-  else if(text == "نجران")
+  else if(provinceText  == "نجران")
   {
     selectedProvinceSuppliers = [];
 
@@ -537,6 +652,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("haelCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "نجران")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".najran").forEach(showElement);
     document.querySelectorAll(".najran").forEach(appendToSelectedSuppliers);
@@ -572,10 +700,8 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
     }
-  else if(text == "جازان")
+  else if(provinceText  == "جازان")
   {
     selectedProvinceSuppliers = [];
 
@@ -599,6 +725,19 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("haelCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierProvince"] == "جازان")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+        
+      }
+    }
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
+    // filteredProfilesArray = Object.assign({}, fullArrayObject);
+
 
     document.querySelectorAll(".jazan").forEach(showElement);
     document.querySelectorAll(".jazan").forEach(appendToSelectedSuppliers);
@@ -634,10 +773,12 @@ function provinceFilter()
       {
         selectedProvinceSuppliers.push(elem);
       }
-      console.log(text);
-      console.log(selectedProvinceSuppliers);
+      
+
     }
   else{
+    // state.allProfiles_JSONArray = fullArrayObject;
+
     document.getElementById("easternCities").selectedIndex = 0;
     document.getElementById("haelCities").selectedIndex = 0;
     document.getElementById("makkahCities").selectedIndex = 0;
@@ -660,7 +801,13 @@ function provinceFilter()
     document.getElementById("taboukCities").classList.add("d-none")
     document.getElementById("najranCities").classList.add("d-none")
     document.getElementById("jazanCities").classList.add("d-none")
+    
+    updatedProfilesLocationsArray = Object.assign({}, fullArrayObject);
+    updateProfilesArray()
+    // state.allProfiles_JSONArray = filteredProfilesArray;
+    // updateProfilesArray();
 
+    
     document.querySelectorAll(".eastern").forEach(showElement);
 
     document.querySelectorAll(".makkah").forEach(showElement);
@@ -685,15 +832,16 @@ function provinceFilter()
       {
           elem.classList.remove("d-none");
       }
-    console.log(text)
   }
+  // console.log("....... UPDATED LOCATIONS ARRAY .........");
+  // console.log(updatedProfilesLocationsArray);
 }
 
 function cityFilter(e)
 {
-  let selectedCity = document.getElementById("easternSelected");
+  updatedProfilesLocationsArray = {};
 
-  console.log("target id: "+e.target.id);
+  let selectedCity = document.getElementById("easternSelected");
 
   if(e.target.id == "haelCities")
   {
@@ -751,1305 +899,1116 @@ function cityFilter(e)
   {
     selectedCity = document.getElementById("najranCities");
   }
-  console.log(selectedCity);
-  let cityValue = selectedCity.options[selectedCity.selectedIndex].value;// get selected option value
+  
+  // get selected option text
   let cityText = selectedCity.options[selectedCity.selectedIndex].text;
-
-  console.log(cityText+" is selected...");
 
   // Eastern Province Cities
   if(cityText == "الظهران")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الظهران'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الظهران")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الظهران'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
+    updateProfilesArray();
   }
   else if(cityText == "الخبر")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الخبر'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الخبر")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الخبر'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "الدمام")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الدمام'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الدمام")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الدمام'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "الجبيل")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الجبيل'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الجبيل")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الجبيل'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
 
   else if(cityText == "الأحساء")
   {
-  
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الأحساء'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الأحساء")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الأحساء'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "القطيف")
   {
-  
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('القطيف'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "القطيف")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('القطيف'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "حفر الباطن")
   {
-  
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('حفرالباطن'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "حفر الباطن")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('حفرالباطن'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "الخفجي")
   {
   
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الخفجي'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الخفجي")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الخفجي'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "النعيرية")
   {
-  
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('النعيرية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "النعيرية")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('النعيرية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
 
 //Hael Province Cities
 if(cityText == "مدينة حائل")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('مدينة حائل'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "مدينة حائل")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('مدينة حائل'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 } 
 else if(cityText == "بقعاء")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('بقعاء'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "بقعاء")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('بقعاء'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "قفار")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('قفار'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "قفار")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('قفار'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الغزالة")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الغزالة'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "الغزالة")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الغزالة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الشنان")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الشنان'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "الشنان")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الشنان'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "موقق")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('موقق'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "موقق")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('موقق'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الحائط")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الحائط'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "الحائط")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الحائط'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "السليمي")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('السليمي'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "السليمي")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('السليمي'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الشملي")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الشملي'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "الشملي")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الشملي'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "سميراء")
 {
-
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('سميراء'))
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "سميراء")
     {
-      item.classList.add("d-none");
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('سميراء'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الحليفة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الحليفة'))
-    {
-      item.classList.add("d-none");
+  for(key in fullArrayObject)
+  {
+    if (fullArrayObject[key]["supplierCity"] == "الحليفة")
+     {
+      updatedProfilesLocationsArray[key] = fullArrayObject[key];
+     }
     }
-    if (item.classList.contains('الحليفة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "جبة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('جبة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "جبة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('جبة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 
 // Makkah cities
 else if(cityText == "الطائف")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الطائف'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الطائف")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الطائف'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "جدة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('جدة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "جدة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('جدة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "مكة المكرمة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('مكة المكرمة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "مكة المكرمة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('مكة المكرمة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "رابغ")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('رابغ'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "رابغ")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('رابغ'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "القنفذة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('القنفذة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "القنفذة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('القنفذة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الليث")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الليث'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الليث")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الليث'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "خليص")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('خليص'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "خليص")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('خليص'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
+
 // Riyadh Cities
 else if(cityText == "شمال الرياض")
   {
-    console.log("added شمال الرياض");
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('شمالالرياض'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "شمال الرياض")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('شمالالرياض'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "جنوب الرياض")
   {
-    console.log("add جنوبالرياض");
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('جنوبالرياض'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "جنوب الرياض")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('جنوبالرياض'))
-      {
-        console.log("contains جنوب الرياض");
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "شرق الرياض")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('شرقالرياض'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "شرق الرياض")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('شرقالرياض'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "غرب الرياض")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('غربالرياض'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "غرب الرياض")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('غربالرياض'))
+    }
+    updateProfilesArray();
+  }
+  else if(cityText == "وسط الرياض")
+  {
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "وسط الرياض")
       {
-        item.classList.remove("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-    });
+    }
+    updateProfilesArray();
   }
   
   // Aseer Cities
   else if(cityText == "أبها")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('أبها'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "أبها")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('أبها'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "خميس مشيط")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('خميسمشيط'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "خميس مشيط")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('خميسمشيط'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "النماص")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('النماص'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "النماص")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('النماص'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "تنومة")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('تنومة'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "تنومة")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('تنومة'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "رجال ألمع")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('رجالألمع'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "رجال ألمع")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('رجالألمع'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "ظهران الجنوب")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('ظهرانالجنوب'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "ظهران الجنوب")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('ظهرانالجنوب'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
 
   // Madinah Cities
   else if(cityText == "الحناكية")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الحناكية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الحناكية")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الحناكية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "العلا")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('العلا'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "العلا")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('العلا'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "ينبع")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('ينبع'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "ينبع")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('ينبع'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "ينبع الصناعية")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('ينبعالصناعية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "ينبع الصناعية")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('ينبعالصناعية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "المدينة المنورة")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('المدينةالمنورة'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "المدينة المنورة")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('المدينةالمنورة'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
 
   // Qassim Cities
   else if(cityText == "عنيزة")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('عنيزة'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "عنيزة")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('عنيزة'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "بريدة")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('بريدة'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "بريدة")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('بريدة'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "البكيرية")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('البكيرية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "البكيربة")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('البكيرية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "ضرية")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('ضرية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "ضرية")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('ضرية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "المذنب")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('المذنب'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "المذنب")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('المذنب'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "عيون الجواء")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('عيونالجواء'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "عيون الجواء")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('عيونالجواء'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "رياض الخبراء")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('رياضالخبراء'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "رياض الخبراء")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('رياضالخبراء'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "عقلة الصقور")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('عقلةالصقور'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "عقلة الصقور")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('عقلةالصقور'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "الأسياح")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الأسياح'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الأسياح")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الأسياح'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "النبهانية")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('النبهانية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "النبهانية")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('النبهانية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "الرس")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الرس'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الرس")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الرس'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "الشماسية")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('الشماسية'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "الشماسية")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('الشماسية'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
   else if(cityText == "البدائع")
   {
-    selectedProvinceSuppliers.forEach(function(item){
-      if (!item.classList.contains('البدائع'))
+    for(key in fullArrayObject)
+    {
+      if (fullArrayObject[key]["supplierCity"] == "البدائع")
       {
-        item.classList.add("d-none");
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
       }
-      if (item.classList.contains('البدائع'))
-      {
-        item.classList.remove("d-none");
-      }
-    });
+    }
+    updateProfilesArray();
   }
 
 // Tabouk Cities
 else if(cityText == "أملج")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('أملج'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "أملج")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('أملج'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الوجه")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الوجه'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الوجه")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الوجه'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "تيماء")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('تيماء'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "تيماء")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('تيماء'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "ضباء")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('ضباء'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "ضباء")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('ضباء'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "حقل")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('حقل'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "حقل")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('حقل'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "البدع")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('البدع'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "البدع")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('البدع'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 // Najran Cities
 else if(cityText == "رجلا")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('رجلا'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "رجلاء")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('رجلا'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "المشعلية")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('المشعلية'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "المشعلية")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('المشعلية'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "حي الفيصلية")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('حيالفيصلية'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "حي الفيصلية")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('حيالفيصلية'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "حي الفهد")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('حيالفهد'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "حي الفهد")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('حيالفهد'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "سقام")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('سقام'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "سقام")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('سقام'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الغويلا")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الغويلا'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الغويلا")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الغويلا'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
+
 else if(cityText == "الجربة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الجربة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الجربة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الجربة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
-}
-else if(cityText == "الجربة")
-{
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الجربة'))
-    {
-      item.classList.add("d-none");
-    }
-    if (item.classList.contains('الجربة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الصفا")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الصفا'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الصفا")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الصفا'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الشرفة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الشرفة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الشرفة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الشرفة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "القابل")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('القابل'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "القابل")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('القابل'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "العريسة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('العريسة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "العريسة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('العريسة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "حي الأسكان")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('حيالأسكان'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "حي الأسكان")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('حيالأسكان'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "شرق المطار")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('شرقالمطار'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "شرق المطار")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('شرقالمطار'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "يدمة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('يدمة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "يدمة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('يدمة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "حبونا")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('حبونا'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "حبونا")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('حبونا'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "نجران البلد")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('نجرانالبلد'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "نجران البلد")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('نجرانالبلد'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 
 // Jazan Cities
 else if(cityText == "صبيا")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('صبيا'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "صبيا")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('صبيا'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "صامطة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('صامطة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "صامطة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('صامطة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "أبو عريش")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('أبوعريش'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "أبو عريش")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('أبوعريش'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "جازان")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('جازان'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "جازان")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('جازان'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "أحد مسارحة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('أحدمسارحة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "أحد مسارحة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('أحدمسارحة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "بيش")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('بيش'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "بيش")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('بيش'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "العارضة")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('العارضة'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "العارضة")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('العارضة'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "ضمد")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('ضمد'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "ضمد")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('ضمد'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الدرب")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الدرب'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الدرب")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الدرب'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "العيدابي")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('العيدابي'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "العيدابي")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('العيدابي'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الدائر")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الدائر'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الدائر")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الدائر'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الريث")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الريث'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الريث")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الريث'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الحرث")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الحرث'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الحرث")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الحرث'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "فرسان")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('فرسان'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "فرسان")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('فرسان'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "الطوال")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('الطوال'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "الطوال")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('الطوال'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "هروب")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('هروب'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "هروب")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('هروب'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 else if(cityText == "فيفاء")
 {
-  selectedProvinceSuppliers.forEach(function(item){
-    if (!item.classList.contains('فيفاء'))
+  for(key in fullArrayObject)
     {
-      item.classList.add("d-none");
+      if (fullArrayObject[key]["supplierCity"] == "فيفاء")
+      {
+        updatedProfilesLocationsArray[key] = fullArrayObject[key];
+      }
     }
-    if (item.classList.contains('فيفاء'))
-    {
-      item.classList.remove("d-none");
-    }
-  });
+    updateProfilesArray();
 }
 
 // If no city selected
   else if(cityText == "المدينة / الحي")
   {
-  selectedProvinceSuppliers.forEach(function(item){
-      item.classList.remove("d-none");
-    });
+   provinceFilter(); 
   }
+  // console.log("////// /////////// //////////// UPDATED LOCATIONS (CITIES-FILTERED) ARRAY /////////////////////////");
+  // console.log(updatedProfilesLocationsArray);
 }
+
+document.getElementById("supplierLoginOrRegisterButton").addEventListener("click", function(){
+  Swal.fire({
+    title: '',
+    icon: '',
+    iconHtml: '',
+    confirmButtonText: 'إنشاء  حساب',
+    cancelButtonText: 'دخول',
+    showCancelButton: true,
+    showCloseButton: true
+  })
+  document.querySelector(".swal2-confirm").addEventListener('click', function(){
+    window.location.assign("signup.html")
+  });
+  document.querySelector(".swal2-cancel").addEventListener('click', function(){
+    window.location.assign("signin.html")
+  });
+});
+
 
 // document.querySelector(".signup").addEventListener("click", function(){
 //   document.querySelector(".signup").classList.add("dim");
