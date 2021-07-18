@@ -6,9 +6,9 @@
 </script> -->
 <html lang="ar" dir="rtl">
 
-</html>
-
 <head>
+  <!-- Sweetalert2 Module -->
+  <script src="node_modules/dist/sweetalert2.all.js"></script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-auth.js"></script>
@@ -18,7 +18,14 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
   <script>
-    // Your web app's Firebase configuration
+    // fetch('http://localhost:5000/')
+    // .then(response => console.log(response));
+
+    // fetch("http://localhost:4000/")
+    // .then(res => res.json())
+    // .then(res => {
+    //     console.log(res); // already json parsed object
+    // });
     var firebaseConfig = {
       apiKey: "AIzaSyDjsKQlqNRWOWD6Qw6tklqtP03BtUW_lqw",
       authDomain: "groceryapp-b381a.firebaseapp.com",
@@ -37,7 +44,7 @@
   <meta http-equiv='cache-control' content='no-cache'>
   <meta http-equiv='expires' content='0'>
   <meta http-equiv='pragma' content='no-cache'> -->
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     charset="utf-8" />
   <!-- Bootstrap RTL CSS -->
@@ -46,16 +53,11 @@
   <!-- Bootstrap css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- CSS Style File -->
-  <link rel="stylesheet" href="../styles.css">
-  <!-- Category Cards Styles -->
-  <link rel="stylesheet" href="../categoryCard.css">
-  <!-- Carousel Slick Styles & Theme CDN Links-->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <!-- CSS Style File -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Category Cards Styles -->
+  <link rel="stylesheet" href="categoryCard.css">
   <!-- Font Awesome for All Icons other than the quantity buttons-->
   <script src="https://kit.fontawesome.com/ab5937a0f1.js" crossorigin="anonymous"></script>
   <!-- Font Awesome fpr Quantity Buttons-->
@@ -79,20 +81,17 @@
 </head>
 
 <body>
+  
   <!-- ////////////////////////////////////// START NAVIGATION BAR ////////////////////////////////////////// -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top"
     style="padding: 5px; background-color:cornflowerblue;">
     <a id="logoFont" class="navbar-brand" href="index.html"
-    style="color: #fff; font-weight: 900; font-size: 2rem; font-style: italic ;margin-left: 35px;">كتشن باي</a>    <div class="dropdown mr-auto ml-1" id="collapsedNavbarItems">
-      <button type="button" class="btn dropdown-toggle" name="button" style="border: solid 1px #1502be; font-weight: 900; color: black;"
-        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">حسابي</button>
-      <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item  text-center" href="../user.html">لوحة التحكم</a>
-        <button class="dropdown-item" id="logoutButton" type="button" name="button">خروج</button>
-      </div>
-    </div>
+      style="color: #fff; font-weight: 900; font-size: 2rem; font-style: italic ;margin-left: 35px;">كتشن باي</a>
+    <button type="button" class="btn signup mr-auto ml-3" id="supplierLoginOrRegisterButton"
+      name="button" style="color:#fff; background-color: blue; border-radius: 15px;">الموردون</button>
   </nav>
   <!-- ///////////////////////////////// END NAVIGATION BAR //////////////////////////////////// -->
+
   <!-- Start loading animation -->
   <div class="loadingAnimation">  
     <div class="dots one">
@@ -104,7 +103,7 @@
     <!-- End loading  animation  -->
   <div class="container-fluid" style="padding:0;">
     <div id="searchBoxRow" class="row"
-      style=" background-image: url(../CHEF_COOKIG.svg); background-position: center; background-repeat: no-repeat;">
+      style=" background-image: url(CHEF_COOKIG.svg); background-position: center; background-repeat: no-repeat;">
       <div id="locationColumn" class="col-sm-4 col-md-4 col-lg-3 mx-auto my-auto" style="text-align: center;">
 
             <select class="form-select form-select-province mb-3" aria-label=".form-select-province example">
@@ -272,6 +271,7 @@
    </div>
   </div>
   </div>
+
   <!-- /////////////////////////////// START CONTENT /////////////////////////////-->
 
   <!-- Start Catrgories -->
@@ -289,7 +289,7 @@
                     <span ></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage1" class="categoryImage" src="../food-basket.svg">
+                    <img id="categoryImage1" class="categoryImage" src="food-basket.svg">
                     <p class="noselect check-card-description disabled" style="text-align: center;">
                       جميع الأصناف
                     </p>
@@ -310,7 +310,7 @@
                       <span></span>
                   </div>
                   <div class="check-card-body-in">
-                      <img id="categoryImage2" class="categoryImage" src="../meat.svg">
+                      <img id="categoryImage2" class="categoryImage" src="meat.svg">
                       <p class="noselect check-card-description disabled" style="text-align: center;">
                          لحــوم
                       </p>
@@ -330,7 +330,7 @@
                       <span></span>
                   </div>
                   <div class="check-card-body-in">
-                      <img id="categoryImage3" class="categoryImage" src="../coffee.svg">
+                      <img id="categoryImage3" class="categoryImage" src="coffee.svg">
                       <p class="noselect check-card-description" style="text-align: center;">
                          شاي و قهوة
                       </p>
@@ -350,7 +350,7 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage4" class="categoryImage" src="../plastics.svg">
+                    <img id="categoryImage4" class="categoryImage" src="plastics.svg">
                     <p id="largeFontSmallScreenHandling" class="noselect check-card-description" style="text-align: center;">
                        مسلتزمات بلاستيكية
                     </p>
@@ -370,7 +370,7 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage5" class="categoryImage" src="../fruit.svg">
+                    <img id="categoryImage5" class="categoryImage" src="fruit.svg">
                     <!-- <img id="fruit2" src="berry2.png" style="display: none;"> -->
                     <p class="noselect check-card-description disabled" style="text-align: center;">
                       خضروات و فواكة
@@ -391,7 +391,7 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage6" class="categoryImage" src="../bread.svg">
+                    <img id="categoryImage6" class="categoryImage" src="bread.svg">
                     <p class="noselect check-card-description" style="text-align: center;">
                       المخبوزات
                     </p>
@@ -411,7 +411,7 @@
                     <span></span>
                 </div>
                 <div class="check-card-body-in">
-                    <img id="categoryImage7" class="categoryImage" src="../salt.svg">
+                    <img id="categoryImage7" class="categoryImage" src="salt.svg">
                     <p class="noselect check-card-description" style="text-align: center;">
                        البهارات
                     </p>
@@ -431,7 +431,7 @@
                   <span></span>
               </div>
               <div class="check-card-body-in">
-                  <img id="categoryImage8" class="categoryImage" src="../frozen.svg">
+                  <img id="categoryImage8" class="categoryImage" src="frozen.svg">
                   <p class="noselect check-card-description" style="text-align: center;">
                      المأكولات المبردة
                   </p>
@@ -451,7 +451,7 @@
                 <span></span>
             </div>
             <div class="check-card-body-in">
-                <img id="categoryImage9" class="categoryImage" src="../drinks.svg">
+                <img id="categoryImage9" class="categoryImage" src="drinks.svg">
                 <p class="noselect check-card-description" style="text-align: center;">
                    المشروبات
                 </p>
@@ -476,6 +476,7 @@
   <!--//////////////////// End Pagination Buttons //////////////////////-->
 
   <!-- /////////////////////////////// END CONTENT /////////////////////////////-->
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -483,21 +484,26 @@
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="getSupplierProfiles.js" type="text/javascript"></script>
 <script src="homePageScript.js" type="text/javascript"></script>
-<script src="../categoryCards.js"></script>
-<script src="logout.js"></script>
+<script src="categoryCards.js"></script>
 
+<script>
+
+</script>
+<script type="text/javascript">
+  $("#signinButton").click(function () {
+    window.location.href = "signin.html";
+  });
+  $("#signupButton").click(function () {
+    window.location.href = "signup.html";
+  });
+</script>
 <script type="text/javascript">
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       var uid = user.uid;
-
-    } else {
-      // User is signed out
-      // window.location.href = "../index.html";
-      window.location.replace("../index.html");
+      window.location.replace("authorised/home.html")
     }
   });
 </script>
