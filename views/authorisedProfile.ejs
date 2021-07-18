@@ -60,6 +60,10 @@
   <script src="js/mobiscroll.javascript.min.js"></script>
 
   <style>
+    html 
+    {
+      z-index: 9;
+    }
     .form-control.input-number {
       font-weight: bold;
       color: black;
@@ -302,15 +306,19 @@
   });
 </script>
 
-<script>
+<!-- <script>
+// window.onload = document.getElementById("trial-message").style.display = "none";
+
+  mobiscroll.localeAr.timeWheels = 'mmhhA';
   mobiscroll.datepicker('#datetime-picker', {
     controls: ['datetime'],
     touchUi: true,
     // calendarSystem: mobiscroll.hijriCalendar,
     locale: mobiscroll.locale.ar,
-    rtl: false,
+    rtl: true,
     stepMinute: 15
   });
-</script>
+
+</script> -->
 
 </html>
